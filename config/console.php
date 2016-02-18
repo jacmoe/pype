@@ -20,5 +20,10 @@ return [
             ],
         ],
     ],
+    'modules' => [
+      'mdpages' => [
+        'class' => 'jacmoe\mdpages\Module',
+      ],
+    ],
     'params' => $params,
 ];

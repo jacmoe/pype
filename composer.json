@@ -1,0 +1,34 @@
+{
+  "name": "jacmoe/pype",
+  "description": "Personal Yii Page Engine",
+  "keywords": ["yii2", "framework", "basic", "sass", "gulp", "project template"],
+  "type": "yii2-extension",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": ">=2.0.5",
+    "jacmoe/yii2-mdpages-module": "@dev"
+  },
+  "require-dev": {
+    "yiisoft/yii2-codeception": "*",
+    "yiisoft/yii2-debug": "*",
+    "yiisoft/yii2-gii": "*",
+    "yiisoft/yii2-faker": "*"
+},
+      "repositories": [
+          {
+              "type": "vcs",
+              "url": "https://github.com/jacmoe/yii2-mdpages-module"
+          }
+      ],
+  "config": {
+    "process-timeout": 1800
+  },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}

@@ -3,7 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 
 return [
-    'id' => 'minimal-console',
+    'id' => 'pype-console',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
@@ -19,7 +19,6 @@ return [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
     ],
     'params' => $params,
 ];

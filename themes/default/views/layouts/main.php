@@ -38,7 +38,7 @@ $theme = $this->theme;
                     echo Nav::widget([
                         'options' => ['class' => 'menu'],
                         'items' => [
-                            ['label' => 'Home', 'url' => ['default/index']],
+                            ['label' => 'Home', 'url' => ['page/index']],
                         ],
                     ]);
                     ?>
@@ -50,7 +50,6 @@ $theme = $this->theme;
         <?= $content ?>
     </div>
 </div>
-
 <footer class="footer">
     <div class="row">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>

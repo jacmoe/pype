@@ -7,7 +7,7 @@ $theme = 'default';
 $config = [
   'id' => 'pype',
   'basePath' => dirname(__DIR__),
-  'defaultRoute' => '/mdpages/default/index',
+  'defaultRoute' => '/mdpages/page/index',
   'layout' => '@app/themes/' . $theme . '/views/layouts/main.php',
   'bootstrap' => ['log'],
   'components' => [
@@ -22,7 +22,7 @@ $config = [
       'identityClass' => '\yii\web\IdentityInterface',
     ],
     'errorHandler' => [
-      'errorAction' => '/mdpages/default/error',
+      'errorAction' => '/mdpages/page/error',
     ],
     'log' => [
       'traceLevel' => YII_DEBUG ? 3 : 0,

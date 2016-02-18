@@ -16,7 +16,6 @@ if(is_null($files)) {
       echo '<pre>';
       print_r($metatags);
       echo '</pre>';
-      echo 'Killroy was here<br/>'
   }
 }
 ?>

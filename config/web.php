@@ -2,11 +2,13 @@
 
 $params = require(__DIR__ . '/params.php');
 
+$theme = 'default';
+
 $config = [
   'id' => 'pype',
   'basePath' => dirname(__DIR__),
   'defaultRoute' => '/mdpages/default/index',
-  'layout' => '@app/themes/standard/views/layouts/main.php',
+  'layout' => '@app/themes/' . $theme . '/views/layouts/main.php',
   'bootstrap' => ['log'],
   'components' => [
     'request' => [
@@ -39,11 +41,11 @@ $config = [
     ],
     'view' => [
       'theme' => [
-        'basePath' => '@app/themes/standard',
-        'baseUrl' => '@web/themes/standard',
+        'basePath' => '@app/themes/' . $theme,
+        'baseUrl' => '@web/themes/' . $theme,
          'pathMap' => [
-           '@app/views' => '@app/themes/standard/views',
-           '@app/modules' => '@app/themes/standard/modules',
+           '@app/views' => '@app/themes/' . $theme . '/views',
+           '/home/jacmoe/webdev/vhosts/yii2-mdpages-module/views' => '@app/themes/' . $theme . '/views',
          ],
       ],
     ],

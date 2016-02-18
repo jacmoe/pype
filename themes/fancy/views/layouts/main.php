@@ -38,7 +38,7 @@ $theme = $this->theme;
                     echo Nav::widget([
                         'options' => ['class' => 'menu'],
                         'items' => [
-                            ['label' => 'asdfawe', 'url' => ['default/index']],
+                            ['label' => 'FANCY', 'url' => ['default/index']],
                         ],
                     ]);
                     ?>

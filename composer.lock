@@ -350,12 +350,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jacmoe/yii2-mdpages-module.git",
-                "reference": "fe43504cde2b730bf826ce9f1c7b2166b8faa829"
+                "reference": "1aceb6a9fca4a4308539923e80844418095253b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jacmoe/yii2-mdpages-module/zipball/fe43504cde2b730bf826ce9f1c7b2166b8faa829",
-                "reference": "fe43504cde2b730bf826ce9f1c7b2166b8faa829",
+                "url": "https://api.github.com/repos/jacmoe/yii2-mdpages-module/zipball/1aceb6a9fca4a4308539923e80844418095253b8",
+                "reference": "1aceb6a9fca4a4308539923e80844418095253b8",
                 "shasum": ""
             },
             "require": {
@@ -388,7 +388,7 @@
                 "source": "https://github.com/jacmoe/yii2-mdpages-module/tree/master",
                 "issues": "https://github.com/jacmoe/yii2-mdpages-module/issues"
             },
-            "time": "2016-02-16 12:24:27"
+            "time": "2016-02-18 16:08:53"
         },
         {
             "name": "jamesmoss/flywheel",
@@ -578,7 +578,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/91dbeb63c08bf4daf74b007d1a0cdc940d6c7efb",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/6abf61b4e0f8330ccf891c046273966272ff3f49",
                 "reference": "91dbeb63c08bf4daf74b007d1a0cdc940d6c7efb",
                 "shasum": ""
             },

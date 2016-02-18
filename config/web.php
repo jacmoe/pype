@@ -6,7 +6,7 @@ $config = [
   'id' => 'pype',
   'basePath' => dirname(__DIR__),
   'defaultRoute' => '/mdpages/default/index',
-  'layout' => '@jacmoe/mdpages/views/layouts/main.php',
+  'layout' => '@app/themes/standard/views/layouts/main.php',
   'bootstrap' => ['log'],
   'components' => [
     'request' => [
@@ -39,11 +39,12 @@ $config = [
     ],
     'view' => [
       'theme' => [
-        'basePath' => '@app/themes/default',
-        'baseUrl' => '@web/themes/default',
-        'pathMap' => [
-          '@jacmoe/mdpages/views' => '@app/themes/default/views',
-        ],
+        'basePath' => '@app/themes/standard',
+        'baseUrl' => '@web/themes/standard',
+         'pathMap' => [
+           '@app/views' => '@app/themes/standard/views',
+           '@app/modules' => '@app/themes/standard/modules',
+         ],
       ],
     ],
   ],

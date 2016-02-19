@@ -11,11 +11,16 @@ if(is_null($files)) {
     echo 'no pages here';
 } else {
   foreach($files as $file) {
-      echo $file . "<br>";
-      $metatags = $metaParser->parse(file_get_contents($file));
-      echo '<pre>';
-      print_r($metatags);
-      echo '</pre>';
+      $url = substr($file, strlen(\Yii::getAlias('@pages')));
+      $url = ltrim($url, '/');
+      $raw_url = pathinfo($url);
+      $url = $raw_url['filename'];
+      if($url == 'README') continue;
+      if($raw_url['dirname'] != '.') {
+          $url = $raw_url['dirname'] . '/' . $url;
+      }
+      echo yii\helpers\Html::a($url,yii\helpers\Url::to(array('view', 'page_id' => $url)));
+      echo '<br>';
   }
 }
 ?>

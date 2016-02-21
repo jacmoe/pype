@@ -7,7 +7,7 @@ $theme = 'default';
 $config = [
     'id' => 'pype',
     'basePath' => dirname(__DIR__),
-    'defaultRoute' => '/mdpages/page',
+    'defaultRoute' => '/wiki/page',
     'layout' => '@app/themes/' . $theme . '/views/layouts/main.php',
     'bootstrap' => ['log'],
     'components' => [
@@ -22,7 +22,7 @@ $config = [
             'identityClass' => '\yii\web\IdentityInterface',
         ],
         'errorHandler' => [
-            'errorAction' => '/mdpages/page/error',
+            'errorAction' => '/wiki/page/error',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -62,7 +62,7 @@ $config = [
         ],
     ],
     'modules' => [
-        'mdpages' => [
+        'wiki' => [
             'class' => 'jacmoe\mdpages\Module',
         ],
     ],

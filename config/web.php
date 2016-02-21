@@ -43,11 +43,6 @@ $config = [
                     'encodeParams' => false
                 ],
                 [
-                    'pattern' => '<module:\w+>/<controller:\w+>/<id:[\w_\/-]+>',
-                    'route' => '<module>/<controller>/view',
-                    'encodeParams' => false
-                ],
-                [
                     'pattern' => '<module:\w+>/<controller:\w+>/<action:\w+>/<id:[\w_\/-]+>',
                     'route' => '<module>/<controller>/<action>',
                     'encodeParams' => false

@@ -38,7 +38,7 @@ $theme = $this->theme;
                     echo Nav::widget([
                         'options' => ['class' => 'menu'],
                         'items' => [
-                            ['label' => 'Home', 'url' => ['page/index']],
+                            ['label' => 'Home', 'url' => yii\helpers\Url::to(array('page/view', 'id' => 'index'))],
                         ],
                     ]);
                     ?>

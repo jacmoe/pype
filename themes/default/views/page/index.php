@@ -19,7 +19,7 @@ if(is_null($files)) {
       if($raw_url['dirname'] != '.') {
           $url = $raw_url['dirname'] . '/' . $url;
       }
-      echo yii\helpers\Html::a($url,yii\helpers\Url::to(array('view', 'page_id' => $url)));
+      echo yii\helpers\Html::a($url,yii\helpers\Url::to(array('/mdpages/page/view', 'id' => $url)));
       echo '<br>';
   }
 }

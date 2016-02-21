@@ -22,5 +22,9 @@ if(is_null($files)) {
       echo yii\helpers\Html::a($url,yii\helpers\Url::to(array('page/view', 'id' => $url)));
       echo '<br>';
   }
+  foreach($pages as $page) {
+      echo $page->title;
+      echo '<br>';
+  }
 }
 ?>

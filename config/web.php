@@ -38,6 +38,11 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 [
+                    'pattern' => '<id:[\w_\/-]+>',
+                    'route' => '/wiki/page/view',
+                    'encodeParams' => false
+                ],
+                [
                     'pattern' => '<module:\w+>/<controller:\w+>/<id:[\w_\/-]+>',
                     'route' => '<module>/<controller>/view',
                     'encodeParams' => false

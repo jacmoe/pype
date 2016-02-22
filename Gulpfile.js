@@ -18,7 +18,6 @@ browsersync = require('browser-sync'),
 sourcemaps = require('gulp-sourcemaps'),
 del = require('del'),
 gulpif = require('gulp-if'),
-neat = require('node-neat'),
 runSequence = require('run-sequence');
 
 var PATHS = {

@@ -15,9 +15,8 @@ function run($postBody) {
     //if (in_array($_SERVER['REMOTE_ADDR'], $github_ips)) {
 
     if (1 === 1) {
-        // check if the push came from the right repository and branch
-        if ($payload->repository->url == 'https://github.com/jacmoe/mdpages-pages'
-            && $payload->ref == 'refs/heads/master') {
+        // check if the push came from the right repository
+        if ($payload->repository->url == 'https://github.com/jacmoe/mdpages-pages') {
 
             // execute update script, and record its output
             passthru('/usr/local/php56/bin//php /home/jacmoe1/pype.jacmoe.dk/current/yii mdpages/pages/update');

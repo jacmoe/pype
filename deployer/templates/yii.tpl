@@ -11,10 +11,10 @@
 defined('YII_DEBUG') or define('YII_DEBUG', {{app.debug}});
 defined('YII_ENV') or define('YII_ENV', '{{app.stage}}');
 
-require(__DIR__ . '/vendor/autoload.php');
-require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
+require('{{release_path}}/vendor/autoload.php');
+require('{{release_path}}/vendor/yiisoft/yii2/Yii.php');
 
-$config = require(__DIR__ . '/config/console.php');
+$config = require('{{release_path}}/config/console.php');
 
 $application = new yii\console\Application($config);
 $exitCode = $application->run();

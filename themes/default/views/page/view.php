@@ -9,8 +9,6 @@ if(count($parts) > 1) {
 }
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<?php
-echo '<pre>';
-print_r($page);
-echo '</pre>';
-?>
+<div class="content">
+    <?= $content; ?>
+</div>

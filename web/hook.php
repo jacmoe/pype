@@ -22,7 +22,7 @@ function run() {
 
                 // execute update script, and record its output
                 ob_start();
-                passthru('/usr/local/php56/bin/php /home/jacmoe1/pype.jacmoe.dk/current/yii mdpages/pages/update');
+                passthru('/usr/local/php56/bin//php /home/jacmoe1/pype.jacmoe.dk/current/yii mdpages/pages/update');
                 $output = ob_end_contents();
 
                 // // prepare and send the notification email

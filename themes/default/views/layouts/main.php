@@ -16,7 +16,11 @@ $theme = $this->theme;
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= Html::encode($this->title) ?></title>
-    <?= Html::cssFile($theme->getUrl('css/site.css')) ?>
+    <?= Html::cssFile($theme->getUrl('css/all.css')) ?>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -39,7 +43,7 @@ $theme = $this->theme;
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<div class="container">
     <header>
         <div class="top-bar">
             <div class="row">
@@ -68,14 +72,15 @@ $theme = $this->theme;
         <?= $content ?>
     </div>
 </div>
-<footer class="footer">
-    <div class="row">
-        <p class="pull-left">&copy; The Pype Team <?= date('Y') ?></p>
+<div class="container">
+    <footer class="footer">
+        <div class="row">
+            <p class="pull-left">&copy; The Pype Team <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Pype::powered(true, 'black') ?></p>
-    </div>
-</footer>
-
+            <p class="pull-right"><?= Pype::powered(true, 'black') ?></p>
+        </div>
+    </footer>
+</div>
 <?php $this->endBody() ?>
 </body>
 </html>

@@ -8,6 +8,8 @@
 
 function run($postBody, $headers) {
 
+    $payload = json_decode($postBody);
+
     $signature = $headers['X-Hub-Signature'];
     if ( ! isset( $signature ) ){
         echo 'No signature';
@@ -23,7 +25,6 @@ function run($postBody, $headers) {
         return false;
     }
 
-    $payload = json_decode($postBody);
 
     // check if the request comes from github server
     $github_ips = array('207.97.227.253', '50.57.128.197', '108.171.174.178', '50.57.231.61');

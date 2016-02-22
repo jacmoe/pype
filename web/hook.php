@@ -16,7 +16,7 @@ function run($postBody, $headers) {
         return false;
     }
 
-    $secret = getenv('WEBHOOK_SECRET');
+    $secret = 'PaldaMQ2zFEsAhv2SPRlp2it_XNnSuJz';//getenv('WEBHOOK_SECRET');
 
     $hash = 'sha1=' . hash_hmac( 'sha1', $postBody, $secret, false );
 

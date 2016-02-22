@@ -6,10 +6,8 @@
  *
  */
 
-function run() {
-    global $rawInput;
+function run($postBody) {
 
-    $postBody = $_POST['payload'];
     $payload = json_decode($postBody);
 
     // check if the request comes from github server
@@ -67,10 +65,11 @@ function run() {
 }
 
 try {
-    if (!isset($_POST['payload'])) {
+    $payload = file_get_contents( 'php://input' );
+    if (!isset($payload)) {
         echo "Works fine.";
     } else {
-        run();
+        run($payload);
     }
 } catch ( Exception $e ) {
     $msg = $e->getMessage();

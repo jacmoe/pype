@@ -6,7 +6,18 @@
  *
  */
 
-function run($postBody) {
+function run($postBody, $headers) {
+
+    $signature = $headers['X-Hub-Signature'];
+    if ( ! isset( $signature ) ){
+        echo 'No signature';
+        return false;
+    }
+    $secret = 'EFA5DDB202DC6D9B9706A967DDC8A7B4DF5E878314CB3BA602DC56107E811324';
+    if($secret !== $signature){
+        echo 'Secret does not match';
+        return false;
+    }
 
     $payload = json_decode($postBody);
 
@@ -59,7 +70,7 @@ try {
     if (!isset($payload)) {
         echo "Works fine.";
     } else {
-        run($payload);
+        run($payload, getallheaders());
     }
 } catch ( Exception $e ) {
     $msg = $e->getMessage();

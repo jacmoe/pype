@@ -1,2 +1,23 @@
 @import "bourbon";
 @import "neat";
+
+header {
+  @include outer-container;
+  .top-bar {
+    .top-bar-left {
+      @include span-columns(3);
+    }
+    .top-bar-right {
+      @include span-columns(9);
+    }
+  }
+}
+main {
+  @include outer-container;
+  .content {
+    @include span-columns(12);
+  }
+}
+footer {
+  @include outer-container;
+}

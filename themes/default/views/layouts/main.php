@@ -42,48 +42,37 @@ $theme = $this->theme;
 </head>
 <body>
 <?php $this->beginBody() ?>
-
-<div class="container">
-    <header>
-        <div class="top-bar">
-            <div class="row">
-                <div class="top-bar-left">
-                    <ul class="menu">
-                        <li class="menu-text">
-                            <a href="<?= Yii::$app->homeUrl ?>">Pype</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="top-bar-right">
-                    <?php
-                    $module = Yii::$app->controller->module ? Yii::$app->controller->module->id : null;
-                    echo Nav::widget([
-                        'options' => ['class' => 'menu'],
-                        'items' => [
-                            ['label' => 'Home', 'url' => yii\helpers\Url::to(array('page/view', 'id' => 'index'))],
-                        ],
-                    ]);
-                    ?>
-                </div>
-            </div>
+<header>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="menu">
+                <li class="menu-text">
+                    <a href="<?= Yii::$app->homeUrl ?>">Pype</a>
+                </li>
+            </ul>
         </div>
-    </header>
+        <div class="top-bar-right">
+            <?php
+            $module = Yii::$app->controller->module ? Yii::$app->controller->module->id : null;
+            echo Nav::widget([
+                'options' => ['class' => 'menu'],
+                'items' => [
+                    ['label' => 'Home', 'url' => yii\helpers\Url::to(array('page/view', 'id' => 'index'))],
+                ],
+            ]);
+            ?>
+        </div>
+    </div>
+</header>
+<main>
     <hr>
     <?= $content ?>
-</div>
-<div class="container">
     <hr/>
-    <footer class="footer">
-        <div class="row">
-            <div class="column">
-                <div class="float-left"><?= Pype::powered(true, 'black') ?></div>
-            </div>
-            <div class="column">
-                <div class="float-right">&copy; The Pype Team <?= date('Y') ?></div>
-            </div>
-        </div>
-    </footer>
-</div>
+</main>
+<footer>
+    <div class="float-left"><?= Pype::powered(true, 'black') ?></div>
+    <div class="float-right">&copy; The Pype Team <?= date('Y') ?></div>
+</footer>
 <?php $this->endBody() ?>
 </body>
 </html>

@@ -17,7 +17,7 @@ function run($postBody, $headers) {
     }
     $secret = 'secret';
 
-    $hash = 'sha1=' . hash_hmac( 'sha1', $payload, $secret, false );
+    $hash = 'sha1=' . hash_hmac( 'sha1', $postBody, $secret, false );
 
     if($hash !== $signature){
         echo 'Secret does not match';

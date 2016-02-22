@@ -16,7 +16,7 @@ function run($postBody) {
 
     if (1 === 1) {
         // check if the push came from the right repository and branch
-        if ($payload->repository->url == 'https://github.com/jacmoe/mdpages'
+        if ($payload->repository->url == 'https://github.com/jacmoe/mdpages-pages'
             && $payload->ref == 'refs/heads/master') {
 
             // execute update script, and record its output

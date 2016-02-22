@@ -14,7 +14,11 @@ function run($postBody, $headers) {
         return false;
     }
     $secret = 'EFA5DDB202DC6D9B9706A967DDC8A7B4DF5E878314CB3BA602DC56107E811324';
-    if($secret !== $signature){
+
+    list( $algo, $hash ) = explode( '=', $signature, 2 );
+    $payload_hash = hash_hmac( $algo, $payload, $secret );
+
+    if($hash !== $payload_hash){
         echo 'Secret does not match';
         return false;
     }

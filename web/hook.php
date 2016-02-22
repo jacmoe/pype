@@ -15,7 +15,7 @@ function run($postBody, $headers) {
         echo 'No signature';
         return false;
     }
-    $secret = 'EFA5DDB202DC6D9B9706A967DDC8A7B4DF5E878314CB3BA602DC56107E811324';
+    $secret = 'secret';
 
     list( $algo, $hash ) = explode( '=', $signature, 2 );
     $payload_hash = hash_hmac( $algo, $payload, $secret );

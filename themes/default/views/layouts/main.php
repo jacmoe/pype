@@ -6,6 +6,7 @@
 use yii\helpers\Html;
 use jacmoe\mdpages\components\Nav;
 use yii\widgets\Breadcrumbs;
+use app\components\Pype;
 $theme = $this->theme;
 ?>
 <?php $this->beginPage() ?>
@@ -54,7 +55,7 @@ $theme = $this->theme;
     <div class="row">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><?= Pype::powered(true, 'black') ?></p>
     </div>
 </footer>
 

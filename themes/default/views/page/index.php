@@ -1,6 +1,6 @@
 <?php
 /* @var $this yii\web\View */
-$this->title = 'Pages';
+$this->title = 'Pype';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?php

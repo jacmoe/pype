@@ -46,7 +46,7 @@ $theme = $this->theme;
                 <div class="top-bar-left">
                     <ul class="menu">
                         <li class="menu-text">
-                            <a href="<?= Yii::$app->homeUrl ?>">My Company</a>
+                            <a href="<?= Yii::$app->homeUrl ?>">Pype</a>
                         </li>
                     </ul>
                 </div>

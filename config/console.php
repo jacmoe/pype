@@ -23,6 +23,7 @@ return [
     'modules' => [
       'mdpages' => [
         'class' => 'jacmoe\mdpages\Module',
+        'repository_url' => 'https://github.com/jacmoe/mdpages-pages.git',
       ],
     ],
     'params' => $params,

@@ -17,10 +17,9 @@ function run($postBody, $headers) {
     }
     $secret = 'secret';
 
-    list( $algo, $hash ) = explode( '=', $signature, 2 );
-    $payload_hash = hash_hmac( $algo, $payload, $secret );
+    $hash = 'sha1=' . hash_hmac( 'sha1', $payload, $secret, false );
 
-    if($hash !== $payload_hash){
+    if($hash !== $signature){
         echo 'Secret does not match';
         return false;
     }

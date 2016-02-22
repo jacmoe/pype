@@ -16,7 +16,7 @@ function run($postBody, $headers) {
         return false;
     }
 
-    $secret = 'PaldaMQ2zFEsAhv2SPRlp2it_XNnSuJz';//getenv('WEBHOOK_SECRET');
+    $secret = '{{app.webhook.secret}}';//getenv('WEBHOOK_SECRET');
 
     $hash = 'sha1=' . hash_hmac( 'sha1', $postBody, $secret, false );
 
@@ -26,11 +26,11 @@ function run($postBody, $headers) {
     }
 
     // check if the push came from the right repository
-    if ($payload->repository->url == 'https://github.com/jacmoe/mdpages-pages'
-        && $payload->ref == 'refs/heads/master') {
+    if ($payload->repository->url == 'https://github.com/{{app.webhook.repository.url}}'
+        && $payload->ref == 'refs/heads/{{app.webhook.repository.branch}}') {
 
         // execute update script
-        passthru('/usr/local/php56/bin//php /home/jacmoe1/pype.jacmoe.dk/current/yii mdpages/pages/update');
+        passthru('{{app.webhook.php}} {{app.webhook.yii}} mdpages/pages/update');
 
         return true;
     } else {

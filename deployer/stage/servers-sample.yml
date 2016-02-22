@@ -11,11 +11,13 @@ prod_1:
         debug: false
         stage: 'prod'
 
-        mysql:
-            host: db_server
-            username: dbuser
-            password: dbpassword
-            dbname: dbname
+        webhook:
+            secret: secrethash
+            php: /usr/bin/php
+            yii: /path/to/yii
+            repository:
+                url: username/repository
+                branch: master
 
 dev_1:
     local: true
@@ -29,8 +31,10 @@ dev_1:
         debug: true
         stage: 'dev'
 
-        mysql:
-            host: localhost
-            username: dbuser
-            password: dbpassword
-            dbname: dbname
+        webhook:
+            secret: secrethash
+            php: /usr/bin/php
+            yii: /path/to/yii
+            repository:
+                url: username/repository
+                branch: master

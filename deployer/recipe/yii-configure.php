@@ -73,8 +73,8 @@ task('deploy:configure', function () {
                         upload($tmpFile, "$releaseDir/" . $target);
                         run('chmod +x ' . "$releaseDir/" . $target);
                     } else {
-                        run("mkdir -p $deployDir/" . dirname($target));
-                        upload($tmpFile, "$deployDir/" . $target);
+                        run("mkdir -p $releaseDir/" . dirname($target));
+                        upload($tmpFile, "$releaseDir/" . $target);
                     }
                     $success = true;
                 }

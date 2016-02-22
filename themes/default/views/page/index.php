@@ -3,13 +3,19 @@
 $this->title = 'Pype';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="content">
-    <?= $content; ?>
+<div class="row">
+    <div class="column">
+        <?= $content; ?>
+    </div>
 </div>
 <hr/>
-<?php
-foreach($pages as $page) {
-  echo yii\helpers\Html::a($page->title,yii\helpers\Url::to(array('page/view', 'id' => $page->url)));
-  echo '<br>';
-}
-?>
+<div class="row">
+    <div class="column">
+        <?php
+        foreach($pages as $page) {
+          echo yii\helpers\Html::a($page->title,yii\helpers\Url::to(array('page/view', 'id' => $page->url)));
+          echo '<br>';
+        }
+        ?>
+    </div>
+</div>

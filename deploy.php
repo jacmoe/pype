@@ -26,6 +26,12 @@ task('deploy:configure_composer', function () {
 //after('deploy:symlink', 'deploy:run_migrations');
 //after('inplace:configure', 'inplace:run_migrations');
 
+task('deploy:build_assets', function () {
+   runLocally('gulp build');
+   upload(__DIR__ . '/web/themes/default/css', '{{release_path}}/web/themes/default/css');
+})->desc('Build assets');
+
 after('deploy:shared', 'deploy:configure');
 before('inplace:vendors', 'deploy:configure_composer');
 before('deploy:vendors', 'deploy:configure_composer');
+after('deploy:vendors', 'deploy:build_assets');

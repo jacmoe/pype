@@ -68,16 +68,19 @@ $theme = $this->theme;
             </div>
         </div>
     </header>
-    <div class="row content">
-        <?= $content ?>
-    </div>
+    <hr>
+    <?= $content ?>
 </div>
 <div class="container">
+    <hr/>
     <footer class="footer">
         <div class="row">
-            <p class="pull-left">&copy; The Pype Team <?= date('Y') ?></p>
-
-            <p class="pull-right"><?= Pype::powered(true, 'black') ?></p>
+            <div class="column">
+                <div class="float-left"><?= Pype::powered(true, 'black') ?></div>
+            </div>
+            <div class="column">
+                <div class="float-right">&copy; The Pype Team <?= date('Y') ?></div>
+            </div>
         </div>
     </footer>
 </div>

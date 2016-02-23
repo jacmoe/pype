@@ -45,9 +45,9 @@ $theme = $this->theme;
 <header>
     <div class="top-bar">
         <div class="top-bar-left">
-            <ul class="menu">
-                <li class="menu-text">
-                    <a href="<?= Yii::$app->homeUrl ?>">Pype</a>
+            <ul>
+                <li class="logo">
+                    <a href="<?= Yii::$app->homeUrl ?>"><img height="35px" width="80px" src="<?= $theme->getUrl('/pype.svg'); ?>" alt="Pype" /></a>
                 </li>
             </ul>
         </div>
@@ -65,13 +65,12 @@ $theme = $this->theme;
     </div>
 </header>
 <main>
-    <hr>
     <?= $content ?>
     <hr/>
 </main>
 <footer>
-    <div class="float-left"><?= Pype::powered(true, 'black') ?></div>
-    <div class="float-right">&copy; The Pype Team <?= date('Y') ?></div>
+    <div class="powered"><?= Pype::powered(true, 'black') ?></div>
+    <div class="copyright">&copy; The Pype Team <?= date('Y') ?></div>
 </footer>
 <?php $this->endBody() ?>
 </body>

@@ -1,11 +1,17 @@
 @import "reset";
 
 @import "bourbon";
+
+@import "core/base";
+
 @import "neat";
 
+body {
+  margin: 0 0 ($base-spacing * 2);
+}
+
 header {
-  margin: 0;
-  padding: 0;
+  padding-top: 2em;
   @include outer-container;
   .top-bar {
     .top-bar-left {

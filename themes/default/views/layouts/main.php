@@ -58,6 +58,8 @@ $theme = $this->theme;
                 'options' => ['class' => 'menu'],
                 'items' => [
                     ['label' => 'Home', 'url' => yii\helpers\Url::to(array('page/view', 'id' => 'index'))],
+                    ['label' => 'Blog', 'url' => yii\helpers\Url::to(array('page/view', 'id' => 'blog'))],
+                    ['label' => 'About', 'url' => yii\helpers\Url::to(array('page/view', 'id' => 'about'))],
                 ],
             ]);
             ?>

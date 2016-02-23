@@ -12,3 +12,19 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="content">
     <?= $content; ?>
 </div>
+<hr>
+<?php
+    $page_arr = (array)$page;
+?>
+<?= count((array)$page); ?>
+<hr>
+<pre>
+<?php
+print_r((array)$page);
+?>
+</pre>
+<pre>
+<?php
+print_r($this->params);
+?>
+</pre>

@@ -7,7 +7,7 @@ use yii\helpers\Html;
 use jacmoe\mdpages\components\Nav;
 use yii\widgets\Breadcrumbs;
 use app\components\Pype;
-use jacmoe\mdpages\components\Pages;
+use jacmoe\mdpages\helpers\Page;
 
 $theme = $this->theme;
 ?>
@@ -59,9 +59,9 @@ $theme = $this->theme;
             echo Nav::widget([
                 'options' => ['class' => 'menu'],
                 'items' => [
-                    ['label' => 'Home', 'url' => Pages::pageLink('index')],
-                    ['label' => 'Blog', 'url' => Pages::pageLink('blog')],
-                    ['label' => 'About', 'url' => Pages::pageLink('about')],
+                    ['label' => 'Home', 'url' => Page::link('index')],
+                    ['label' => 'Blog', 'url' => Page::link('blog')],
+                    ['label' => 'About', 'url' => Page::link('about')],
                 ],
             ]);
             ?>

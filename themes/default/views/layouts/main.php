@@ -59,9 +59,9 @@ $theme = $this->theme;
             echo Nav::widget([
                 'options' => ['class' => 'menu'],
                 'items' => [
-                    ['label' => 'Home', 'url' => Page::link('index')],
-                    ['label' => 'Blog', 'url' => Page::link('blog')],
-                    ['label' => 'About', 'url' => Page::link('about')],
+                    ['label' => Page::title('index'), 'url' => Page::url('index')],
+                    ['label' => Page::title('blog'), 'url' => Page::url('blog')],
+                    ['label' => Page::title('about'), 'url' => Page::url('about')],
                 ],
             ]);
             ?>

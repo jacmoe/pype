@@ -7,18 +7,18 @@ class Pype {
     {
         if($image === true)
         {
-            return '<a href="https://pype.jacmoe.dk/" rel="external"><img width="90" height="40" title="Powered by Pype" alt="Powered by Pype" src="' . Pype::getPypeLogo($color) . '"></a>';
+            return '<a href="https://pype.jacmoe.dk/" rel="external"><img width="90" height="40" title="Powered by Pype" alt="Powered by Pype" src="' . Pype::logo($color) . '"></a>';
         }
 
         return 'Powered by <a href="https://pype.jacmoe.dk/" rel="external">Pype</a>';
     }
 
     /**
-    * Returns Yii logo ready to use in `<img src="`
+    * Returns Pype logo ready to use in `<img src="`
     *
     * @return string base64 representation of the image
     */
-    public static function getPypeLogo($color = 'black')
+    public static function logo($color = 'black')
     {
         if($color === 'white')
         {

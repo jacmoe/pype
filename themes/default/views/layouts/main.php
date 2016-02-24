@@ -59,7 +59,7 @@ $theme = $this->theme;
                 foreach(Page::pages('updated ASC') as $page) {
                     echo Html::a($page->title, Page::url($page->url)) . ' | ';
                 }
-                echo Html::a('RSS', Url::to('rss'));
+                echo Html::a('RSS', Url::to('/rss'));
             // $pages = Page::pages();
             // $items = array();
             // foreach($pages as $page) {

@@ -4,6 +4,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use jacmoe\mdpages\components\Nav;
 use yii\widgets\Breadcrumbs;
 use app\components\Pype;
@@ -55,10 +56,10 @@ $theme = $this->theme;
         </div>
         <div class="top-bar-right">
             <?php
-                echo '| ';
-                foreach(Page::pages('title ASC') as $page) {
+                foreach(Page::pages('updated ASC') as $page) {
                     echo Html::a($page->title, Page::url($page->url)) . ' | ';
                 }
+                echo Html::a('RSS', Url::to('rss'));
             // $pages = Page::pages();
             // $items = array();
             // foreach($pages as $page) {

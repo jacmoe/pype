@@ -38,6 +38,10 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 [
+                    'pattern' => 'rss',
+                    'route' => '/wiki/page/rss',
+                ],
+                [
                     'pattern' => '<id:[\w_\/-]+>',
                     'route' => '/wiki/page/view',
                     'encodeParams' => false

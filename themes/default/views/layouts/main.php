@@ -56,7 +56,7 @@ $theme = $this->theme;
         <div class="top-bar-right">
             <?php
                 echo '| ';
-                foreach(Page::pages() as $page) {
+                foreach(Page::pages('title ASC') as $page) {
                     echo Html::a($page->title, Page::url($page->url)) . ' | ';
                 }
             // $pages = Page::pages();

@@ -1,4 +1,6 @@
 <?php
+use yii\helpers\Html;
+use jacmoe\mdpages\helpers\Page;
 /* @var $this yii\web\View */
 $this->title = isset($page->title) ? $page->title : 'Untitled';
 $this->params['breadcrumbs'][] = ['label' => 'Pages', 'url' => ['index']];
@@ -12,6 +14,13 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="content">
     <?= $content; ?>
 </div>
+<hr>
+<?php
+    echo '| ';
+    foreach(Page::pages() as $page) {
+        echo Html::a($page->title, Page::url($page->url)) . ' | ';
+    }
+?>
 <hr>
 <?php
     $page_arr = (array)$page;

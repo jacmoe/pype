@@ -38,7 +38,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 [
-                    'pattern' => 'rss',
+                    'pattern' => '/rss',
                     'route' => '/wiki/page/rss',
                 ],
                 [

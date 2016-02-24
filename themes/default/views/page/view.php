@@ -16,13 +16,6 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <hr>
 <?php
-    echo '| ';
-    foreach(Page::pages() as $page) {
-        echo Html::a($page->title, Page::url($page->url)) . ' | ';
-    }
-?>
-<hr>
-<?php
     $page_arr = (array)$page;
 ?>
 <?= count((array)$page); ?>

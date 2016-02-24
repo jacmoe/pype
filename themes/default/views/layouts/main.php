@@ -55,15 +55,20 @@ $theme = $this->theme;
         </div>
         <div class="top-bar-right">
             <?php
-            $module = Yii::$app->controller->module ? Yii::$app->controller->module->id : null;
-            echo Nav::widget([
-                'options' => ['class' => 'menu'],
-                'items' => [
-                    ['label' => Page::title('index'), 'url' => Page::url('index')],
-                    ['label' => Page::title('blog'), 'url' => Page::url('blog')],
-                    ['label' => Page::title('about'), 'url' => Page::url('about')],
-                ],
-            ]);
+                echo '| ';
+                foreach(Page::pages() as $page) {
+                    echo Html::a($page->title, Page::url($page->url)) . ' | ';
+                }
+            // $pages = Page::pages();
+            // $items = array();
+            // foreach($pages as $page) {
+            //     $items[] = ['label' => $page->title, 'url' => Page::url($page->url)];
+            // }
+            // $module = Yii::$app->controller->module ? Yii::$app->controller->module->id : null;
+            // echo Nav::widget([
+            //     'options' => ['class' => 'menu'],
+            //     'items' => $items,
+            // ]);
             ?>
         </div>
     </div>

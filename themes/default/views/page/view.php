@@ -14,20 +14,12 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="content">
     <?= $content; ?>
 </div>
-<hr>
-<?php
-    $page_arr = (array)$page;
-?>
-<?= count($page_arr); ?>
-<hr>
-<pre>
-<?php
-print_r($page_arr);
-?>
-</pre>
-<hr>
-<h3>Contributors to this page</h3>
-<?php
-    foreach($page->contributors as $contributor) {
-        echo Html::a(Html::img($contributor->avatar_url, array('width' => '32px', 'title' => $contributor->name)), $contributor->html_url);
-    }
+<div class="content">
+    <hr>
+    <h3>Contributors to this page</h3>
+    <?php
+        foreach($page->contributors as $contributor) {
+            echo Html::a(Html::img($contributor->avatar_url, array('width' => '32px', 'title' => $contributor->name)), $contributor->html_url);
+        }
+    ?>
+</div>

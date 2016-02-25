@@ -25,3 +25,9 @@ $this->params['breadcrumbs'][] = $this->title;
 print_r($page_arr);
 ?>
 </pre>
+<hr>
+<h3>Contributors to this page</h3>
+<?php
+    foreach($page->contributors as $contributor) {
+        echo Html::a(Html::img($contributor->avatar_url, array('width' => '32px', 'title' => $contributor->name)), $contributor->html_url);
+    }

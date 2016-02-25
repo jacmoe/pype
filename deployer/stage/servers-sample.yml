@@ -11,13 +11,16 @@ prod_1:
         debug: false
         stage: 'prod'
 
+        github:
+            token: secretstuff
+            owner: user
+            repo: repo
+            branch: master
+
         webhook:
             secret: secrethash
             php: /usr/bin/php
             yii: /path/to/yii
-            repository:
-                url: username/repository
-                branch: master
 
 dev_1:
     local: true
@@ -31,10 +34,13 @@ dev_1:
         debug: true
         stage: 'dev'
 
+        github:
+            token: secretstuff
+            owner: user
+            repo: repo
+            branch: master
+
         webhook:
             secret: secrethash
             php: /usr/bin/php
             yii: /path/to/yii
-            repository:
-                url: username/repository
-                branch: master

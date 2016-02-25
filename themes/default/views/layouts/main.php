@@ -77,6 +77,20 @@ $theme = $this->theme;
 <main>
     <?= $content ?>
     <hr/>
+    <?php
+        foreach(Page::pages('updated ASC') as $page) {
+            $view_params = array_slice((array)$page, 2);
+            foreach($view_params as $key => $value) {
+                if(is_object($value)) {
+                    // we are dealing with arrays..
+                    continue;
+                } else {
+                    echo $key . ' : ' . $value . '<br>';
+                }
+            }
+            echo '<hr>';
+        }
+    ?>
 </main>
 <footer>
     <div class="powered"><?= Pype::powered(true, 'black') ?></div>

@@ -18,15 +18,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php
     $page_arr = (array)$page;
 ?>
-<?= count((array)$page); ?>
+<?= count($page_arr); ?>
 <hr>
 <pre>
 <?php
-print_r((array)$page);
-?>
-</pre>
-<pre>
-<?php
-print_r($this->params);
+print_r($page_arr);
 ?>
 </pre>

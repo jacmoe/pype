@@ -26,8 +26,8 @@ function run($postBody, $headers) {
     }
 
     // check if the push came from the right repository
-    if ($payload->repository->url == 'https://github.com/{{app.webhook.repository.url}}'
-        && $payload->ref == 'refs/heads/{{app.webhook.repository.branch}}') {
+    if ($payload->repository->url == 'https://github.com/{{app.github.owner}}/{{app.github.repo}}'
+        && $payload->ref == 'refs/heads/{{app.github.branch}}') {
 
         // execute update script
         passthru('{{app.webhook.php}} {{app.webhook.yii}} mdpages/pages/update');

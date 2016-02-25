@@ -68,7 +68,10 @@ $config = [
     'modules' => [
         'wiki' => [
             'class' => 'jacmoe\mdpages\Module',
-            'repository_url' => 'https://github.com/jacmoe/mdpages-pages.git',
+            'repository_url' => 'https://github.com/{{app.github.owner}}/{{app.github.repo}}.git',
+            'github_token' => '{{app.github.token}}',
+            'github_owner' => '{{app.github.owner}}',
+            'github_repo' => '{{app.github.repo}}',
         ],
     ],
     'params' => $params,

@@ -72,6 +72,7 @@ $config = [
             'github_token' => '{{app.github.token}}',
             'github_owner' => '{{app.github.owner}}',
             'github_repo' => '{{app.github.repo}}',
+            'absolute_wikilinks' => true,
         ],
     ],
     'params' => $params,

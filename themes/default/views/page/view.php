@@ -12,7 +12,7 @@ $this->title = isset($page->title) ? $page->title : 'Untitled';
 // }
 // $this->params['breadcrumbs'][] = $this->title;
 echo '<pre>';
-print_r($breadcrumbs);
+print_r($this->params['breadcrumbs']);
 echo '</pre>';
 ?>
 <div class="content">

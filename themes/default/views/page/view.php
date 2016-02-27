@@ -7,12 +7,13 @@ $this->title = isset($page->title) ? $page->title : 'Untitled';
 
 foreach($this->params['breadcrumbs'] as $breadcrumb) {
     if(isset($breadcrumb['url'])) {
-        echo Html::a($breadcrumb['label'], $breadcrumb['url']) . ' | ';
+        echo Html::a($breadcrumb['label'], $breadcrumb['url']) . '  ';
     } else {
-        echo $breadcrumb['label'] . ' | ';
+        echo $breadcrumb['label'] . '  ';
     }
 }
 ?>
+<hr>
 <div class="content">
     <?= $content; ?>
 </div>

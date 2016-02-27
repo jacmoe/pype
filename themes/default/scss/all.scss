@@ -2,6 +2,7 @@
 @import "bourbon";
 @import "core/base";
 @import "neat";
+@import "../../../vendor/scrivo/highlight.php/styles/github";
 
 body {
   margin: 0 0 ($base-spacing * 2);

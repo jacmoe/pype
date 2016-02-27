@@ -26,12 +26,19 @@ task('deploy:configure_composer', function () {
 //after('deploy:symlink', 'deploy:run_migrations');
 //after('inplace:configure', 'inplace:run_migrations');
 
+// build assets
 task('deploy:build_assets', function () {
    runLocally('gulp build');
    upload(__DIR__ . '/web/themes/default/css', '{{release_path}}/web/themes/default/css');
 })->desc('Build assets');
 
+// update symlink to images dir
+task('deploy:images_symlink', function () {
+    run('php {{release_path}}/yii mdpages/pages/symlink');
+})->desc('Update images symlink');
+
 after('deploy:shared', 'deploy:configure');
 before('inplace:vendors', 'deploy:configure_composer');
 before('deploy:vendors', 'deploy:configure_composer');
 after('deploy:vendors', 'deploy:build_assets');
+after('deploy:build_assets', 'deploy:images_symlink');

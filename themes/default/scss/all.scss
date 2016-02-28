@@ -43,3 +43,11 @@ footer {
     @include span-columns(6);
   }
 }
+
+.toc {
+  position: relative;
+  float: right;
+  border: 1px dashed #999;
+  border-radius: 3px;
+  padding: 1em;
+}

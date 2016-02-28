@@ -19,7 +19,7 @@ $theme = $this->theme;
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= Html::encode($this->title) ?></title>
-    <?= Html::cssFile($theme->getUrl('css/all.min.css')) ?>
+    <?= Html::cssFile(YII_DEBUG ? '@web/themes/default/css/all.min' : '@web/themes/default/css/all.min.css?v=' . filemtime(Yii::getAlias('@webroot/themes/default/css/all.min.css'))) ?>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -95,6 +95,7 @@ $theme = $this->theme;
     <div class="powered"><?= Pype::powered(true, 'black') ?></div>
     <div class="copyright">&copy; The Pype Team <?= date('Y') ?></div>
 </footer>
+<?= Html::jsFile(YII_DEBUG ? '@web/themes/default/js/all.js' : '@web/themes/default/js/all.min.js?v=' . filemtime(Yii::getAlias('@webroot/themes/default/js/all.min.js'))) ?>
 <?php $this->endBody() ?>
 </body>
 </html>

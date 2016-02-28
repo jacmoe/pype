@@ -41,36 +41,8 @@ var PATHS = {
     ],
     javascript: [
         'vendor/bower/jquery/dist/jquery.js',
-        'vendor/bower/what-input/what-input.js',
-        'vendor/bower/foundation-sites/js/foundation.core.js',
-        'vendor/bower/foundation-sites/js/foundation.util.*.js',
-        // Paths to individual JS components defined below
-        'vendor/bower/foundation-sites/js/foundation.abide.js',
-        'vendor/bower/foundation-sites/js/foundation.accordion.js',
-        'vendor/bower/foundation-sites/js/foundation.accordionMenu.js',
-        'vendor/bower/foundation-sites/js/foundation.drilldown.js',
-        'vendor/bower/foundation-sites/js/foundation.dropdown.js',
-        'vendor/bower/foundation-sites/js/foundation.dropdownMenu.js',
-        'vendor/bower/foundation-sites/js/foundation.equalizer.js',
-        'vendor/bower/foundation-sites/js/foundation.interchange.js',
-        'vendor/bower/foundation-sites/js/foundation.magellan.js',
-        'vendor/bower/foundation-sites/js/foundation.offcanvas.js',
-        'vendor/bower/foundation-sites/js/foundation.orbit.js',
-        'vendor/bower/foundation-sites/js/foundation.responsiveMenu.js',
-        'vendor/bower/foundation-sites/js/foundation.responsiveToggle.js',
-        'vendor/bower/foundation-sites/js/foundation.reveal.js',
-        'vendor/bower/foundation-sites/js/foundation.slider.js',
-        'vendor/bower/foundation-sites/js/foundation.sticky.js',
-        'vendor/bower/foundation-sites/js/foundation.tabs.js',
-        'vendor/bower/foundation-sites/js/foundation.toggler.js',
-        'vendor/bower/foundation-sites/js/foundation.tooltip.js',
-        // Yii2 scrips
-        "vendor/yiisoft/yii2/assets/yii.js",
-        "vendor/yiisoft/yii2/assets/yii.validation.js",
-        "vendor/yiisoft/yii2/assets/yii.activeForm.js",
-        // Custom scripts
-        'js/**/!(custom).js',
-        'js/custom.js'
+        'themes/default/js/jquery.sticky.js',
+        'themes/default/js/custom.js'
     ]
 };
 
@@ -107,10 +79,10 @@ gulp.task('scripts', function() {
     .pipe(sourcemaps.init())
     .pipe(concat('all.js'))
     .pipe(sourcemaps.write('.', { sourceRoot: '../../js/' }))
-    .pipe(gulp.dest('web/js'))
+    .pipe(gulp.dest('web/themes/default/js'))
     .pipe(gulpif('*.js', rename({ suffix: '.min' })))
     .pipe(gulpif('*.js', uglify()))
-    .pipe(gulpif('*.js', gulp.dest('web/js')))
+    .pipe(gulpif('*.js', gulp.dest('web/themes/default/js')))
     .pipe(gulpif('*.js', notify({ message: 'Scripts task complete' })));
 });
 
@@ -132,13 +104,13 @@ gulp.task('fonts', function() {
 
 // Clean
 gulp.task('clean', function() {
-    return del(['web/themes/default/css/*']);
+    return del(['web/themes/default/css/*', 'web/themes/default/js/*']);
     //return del(['web/css/*', 'web/js/*', 'web/fonts/*']);
 });
 
 // Build the "web" folder by running all of the above tasks
 gulp.task('build', function(callback) {
-    runSequence('clean', ['styles'], callback);
+    runSequence('clean', ['styles', 'scripts'], callback);
     //runSequence('clean', ['styles', 'scripts', 'fonts'], callback);
 });
 

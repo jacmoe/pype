@@ -27,7 +27,7 @@ foreach($this->params['breadcrumbs'] as $breadcrumb) {
 <div class="content">
     <pre>
     <?php
-        print_r($headings);
+        //print_r($headings);
     ?>
     </pre>
 </div>

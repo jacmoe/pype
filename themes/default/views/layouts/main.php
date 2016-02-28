@@ -56,9 +56,11 @@ $theme = $this->theme;
         </div>
         <div class="top-bar-right">
             <?php
-                foreach(Page::pages('title') as $page) {
-                    echo Html::a($page->title, Page::url($page->url)) . ' | ';
-                }
+                // foreach(Page::pages('title') as $page) {
+                //     echo Html::a($page->title, Page::url($page->url)) . ' | ';
+                // }
+                echo Html::a('Home', Page::url('index')) . ' | ';
+                echo Html::a('Docs', Page::url('docs')) . ' | ';
                 echo Html::a('RSS', Url::to('/rss'));
             // $pages = Page::pages();
             // $items = array();

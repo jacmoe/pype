@@ -21,9 +21,6 @@ $theme = $this->theme;
     <title><?= Html::encode($this->title) ?></title>
     <?= Html::cssFile($theme->getUrl('css/all.min.css')) ?>
 
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">

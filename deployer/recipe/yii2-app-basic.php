@@ -13,7 +13,7 @@ require_once __DIR__ . '/common.php';
  */
 
 // Yii 2 Basic Project Template shared dirs
-set('shared_dirs', ['runtime']);
+set('shared_dirs', ['runtime', 'web/avatars']);
 
 /**
  * Run migrations

@@ -18,6 +18,9 @@ foreach($this->params['breadcrumbs'] as $breadcrumb) {
     <?= $content; ?>
 </div>
 <div class="content">
+    <?= Page::paginate(); ?>
+</div>
+<div class="content">
     <hr>
     <h3>Contributors to this page</h3>
     <?php

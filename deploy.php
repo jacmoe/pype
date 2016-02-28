@@ -42,6 +42,7 @@ task('deploy:configure_composer', function () {
 task('deploy:build_assets', function () {
    runLocally('gulp build');
    upload(__DIR__ . '/web/themes/default/css', '{{release_path}}/web/themes/default/css');
+   upload(__DIR__ . '/web/themes/default/js', '{{release_path}}/web/themes/default/js');
 })->desc('Build assets');
 
 // update symlink to images dir

@@ -28,6 +28,7 @@ return [
         'github_owner' => '{{app.github.owner}}',
         'github_repo' => '{{app.github.repo}}',
         'absolute_wikilinks' => true,
+        'generate_page_toc' => true,
       ],
     ],
     'params' => $params,

@@ -29,7 +29,7 @@ foreach($this->params['breadcrumbs'] as $breadcrumb) {
     <h3>Contributors to this page</h3>
     <?php
         foreach($page->contributors as $contributor) {
-            echo Html::a(Html::img($contributor->avatar_url, array('width' => '32px', 'title' => $contributor->name)), $contributor->html_url);
+            echo Html::a(Html::img(Yii::getAlias('@web/avatars/') . $contributor->login . '.png', array('width' => '24px', 'height' => '24px', 'title' => $contributor->name)), $contributor->html_url);
         }
     ?>
 </div>

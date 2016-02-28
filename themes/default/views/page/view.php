@@ -25,6 +25,13 @@ foreach($this->params['breadcrumbs'] as $breadcrumb) {
     </pre>
 </div>
 <div class="content">
+    <pre>
+    <?php
+        print_r($headings);
+    ?>
+    </pre>
+</div>
+<div class="content">
     <hr>
     <h3>Contributors to this page</h3>
     <?php

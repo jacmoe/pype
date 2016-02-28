@@ -20,7 +20,7 @@ foreach($this->params['breadcrumbs'] as $breadcrumb) {
 <div class="content">
     <pre>
     <?php
-        print_r(Page::paginate('created DESC'));
+        //print_r(Page::paginate('created DESC'));
     ?>
     </pre>
 </div>

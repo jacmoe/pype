@@ -18,7 +18,11 @@ foreach($this->params['breadcrumbs'] as $breadcrumb) {
     <?= $content; ?>
 </div>
 <div class="content">
-    <?= Page::paginate(); ?>
+    <pre>
+    <?php
+        print_r(Page::paginate('created DESC'));
+    ?>
+    </pre>
 </div>
 <div class="content">
     <hr>

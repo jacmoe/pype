@@ -15,6 +15,20 @@ The application should be easy to upgrade and manage.
 And, last - but not least: Pype is powered by the [Yii Framework](http://www.yiiframework.com/)
 
 
+```
+/*
+*  _ __  _   _ _ __   ___
+* | '_ \| | | | '_ \ / _ \
+* | |_) | |_| | |_) |  __/
+* | .__/ \__, | .__/ \___|
+* |_|    |___/|_|
+*                 Personal Yii Page Engine
+*
+*	Copyright (c) 2016 Jacob Moen
+*	Licensed under the MIT license
+*/
+```
+
 ## Work In Progress !!
 
 ### Preliminary installation instructions:

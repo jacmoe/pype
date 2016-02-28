@@ -1,3 +1,16 @@
+/*
+* This file is part of
+*  _ __  _   _ _ __   ___
+* | '_ \| | | | '_ \ / _ \
+* | |_) | |_| | |_) |  __/
+* | .__/ \__, | .__/ \___|
+* |_|    |___/|_|
+*                 Personal Yii Page Engine
+*
+*	Copyright (c) 2016 Jacob Moen
+*	Licensed under the MIT license
+*/
+
 // fix problems with undefined Promise class
 // http://stackoverflow.com/questions/32490328/gulp-autoprefixer-throwing-referenceerror-promise-is-not-defined
 require('es6-promise').polyfill();

@@ -1,8 +1,29 @@
 <?php
 namespace app\components;
+/*
+* This file is part of
+*  _ __  _   _ _ __   ___
+* | '_ \| | | | '_ \ / _ \
+* | |_) | |_| | |_) |  __/
+* | .__/ \__, | .__/ \___|
+* |_|    |___/|_|
+*                 Personal Yii Page Engine
+*
+*	Copyright (c) 2016 Jacob Moen
+*	Licensed under the MIT license
+*/
 
+/**
+ *
+ */
 class Pype {
 
+    /**
+     * [powered description]
+     * @param  [type] $image [description]
+     * @param  string $color [description]
+     * @return [type]        [description]
+     */
     public static function powered($image = true, $color = 'black')
     {
         if($image === true)

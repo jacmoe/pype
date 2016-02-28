@@ -19,7 +19,7 @@ $theme = $this->theme;
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= Html::encode($this->title) ?></title>
-    <?= Html::cssFile(YII_DEBUG ? '@web/themes/default/css/all.min' : '@web/themes/default/css/all.min.css?v=' . filemtime(Yii::getAlias('@webroot/themes/default/css/all.min.css'))) ?>
+    <?= Html::cssFile(YII_DEBUG ? '@web/themes/default/css/all.css' : '@web/themes/default/css/all.min.css?v=' . filemtime(Yii::getAlias('@webroot/themes/default/css/all.min.css'))) ?>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">

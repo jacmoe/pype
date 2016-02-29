@@ -10,6 +10,13 @@ use yii\widgets\Breadcrumbs;
 use app\components\Pype;
 use jacmoe\mdpages\helpers\Page;
 
+$this->registerLinkTag([
+    'title' => 'RSS Feed',
+    'rel' => 'alternate',
+    'type' => 'application/rss+xml',
+    'href' => Url::to('rss', true),
+]);
+
 $theme = $this->theme;
 ?>
 <?php $this->beginPage() ?>

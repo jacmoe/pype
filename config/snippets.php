@@ -26,8 +26,10 @@ class Snippets extends \jacmoe\mdpages\components\snippets\Snippets
     {
         $image_url = Url::home(true) . "images/" . $source;
         $image_path = \Yii::getAlias('@app/web/images/') . $source;
-        $image_info = array_values(getimagesize($image_path));
-        list($width, $height, $type, $attr) = $image_info;
+        if(is_file($image_path)) {
+            $image_info = array_values(getimagesize($image_path));
+            list($width, $height, $type, $attr) = $image_info;
+        }
 
         return "<img src=\""
             . $target_url
@@ -44,8 +46,10 @@ class Snippets extends \jacmoe\mdpages\components\snippets\Snippets
         $target_url = Url::home(true) . "images/" . $target;
         $image_url = Url::home(true) . "images/" . $source;
         $image_path = \Yii::getAlias('@app/web/images/') . $source;
-        $image_info = array_values(getimagesize($image_path));
-        list($width, $height, $type, $attr) = $image_info;
+        if(is_file($image_path)) {
+            $image_info = array_values(getimagesize($image_path));
+            list($width, $height, $type, $attr) = $image_info;
+        }
 
         return "<a href=\""
             . $target_url

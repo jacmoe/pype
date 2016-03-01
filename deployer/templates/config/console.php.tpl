@@ -1,6 +1,7 @@
 <?php
 
 $params = require(__DIR__ . '/params.php');
+$snippets = require(__DIR__ . '/snippets.php');
 
 return [
     'id' => 'pype-console',
@@ -29,6 +30,7 @@ return [
         'github_repo' => '{{app.github.repo}}',
         'absolute_wikilinks' => true,
         'generate_page_toc' => true,
+        'snippets' => $snippets,
       ],
     ],
     'params' => $params,

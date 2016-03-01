@@ -32,12 +32,12 @@ class Snippets extends \jacmoe\mdpages\components\snippets\Snippets
         }
 
         return "<img src=\""
-            . $target_url
+            . $image_url
             . "\" alt=\"" . $title
-            . "\" title=\"" . $title
+            . "\" title=\"" . $title . "\""
             . (!isset($width) ? "" : " width=\"" . $width . "\" ")
             . (!isset($height) ? "" : " height=\"" . $height . "\" ")
-            . "\" class=\"th gallery "
+            . "class=\"th gallery "
             . $align . "\">";
     }
 

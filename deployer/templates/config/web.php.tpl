@@ -56,6 +56,17 @@ $config = [
             ],
         ],
         'view' => [
+            'defaultExtension' => 'jade',
+            'renderers' => [
+                'jade' => [
+                    'class' => 'jacmoe\talejade\JadeViewRenderer',
+                    'cachePath' => '@runtime/Jade/cache',
+                    'options' => [
+                        'pretty' => true,
+                        'lifeTime' => 3600,//3600 -> 1 hour
+                    ],
+                ],
+            ],
             'theme' => [
                 'basePath' => '@app/themes/' . $theme,
                 'baseUrl' => '@web/themes/' . $theme,

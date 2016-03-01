@@ -1,5 +1,7 @@
 <?php
 //TODO: figure out how to move this snippet class to components..
+use yii\helpers\Url;
+
 /**
  * Custom snippets to extend the Markdown markup
  */
@@ -13,19 +15,34 @@ class Snippets extends \jacmoe\mdpages\components\snippets\Snippets
     public function icondiv($icon, $clear=false)
     {
         if($clear) {
-          return "<div class=\"ui horizontal clearing divider\"><i class=\"fi-".$icon."\"></i></div>";
+          return "<div class=\"ui horizontal clearing divider\">
+            <i class=\"fi-".$icon."\"></i></div>";
         }
-        return "<div class=\"ui horizontal divider\"><i class=\"fi-".$icon."\"></i></div>";
+        return "<div class=\"ui horizontal divider\">
+            <i class=\"fi-".$icon."\"></i></div>";
     }
 
     public function inimage($title, $source, $align ="left", $width=320, $height=240, $size="large")
     {
-        return "<img src=\"".\Yii::getAlias('@app/web')."/images/".$source."\" alt=\"".$title."\" title=\"".$title."\" class=\"th gallery ".$size." ".$align."\">";
+        return "<img src=\""
+            .Url::home(true)
+            ."images/".$source."\" alt=\"".$title
+            ."\" title=\"".$title."\" class=\"th gallery "
+            .$size." ".$align."\">";
     }
 
     public function lightbox($title, $source, $target, $align ="left", $width=320, $height=240, $size="large")
     {
-        return "<a href=\"".\Yii::getAlias('@app/web')."/images/".$target."\" data-lightbox=\"".$target."\" title=\"".$title."\" class=\"sb\"><img src=\"".\Yii::getAlias('@app/web')."/images/".$source."\" alt=\"".$title."\" title=\"".$title."\" class=\"gallery th ".$size." ".$align." floated image\"></a>";
+        return "<a href=\""
+            .Url::home(true)
+            ."images/".$target."\" data-lightbox=\""
+            .$target."\" title=\"".$title
+            ."\" class=\"sb\"><img src=\""
+            .Url::home(true)
+            ."images/"
+            .$source."\" alt=\"".$title."\" title=\""
+            .$title."\" class=\"gallery th ".$size." "
+            .$align." floated image\"></a>";
     }
 
 }

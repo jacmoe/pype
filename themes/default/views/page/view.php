@@ -15,6 +15,7 @@ foreach($this->params['breadcrumbs'] as $breadcrumb) {
 ?>
 <hr>
 <div class="content">
+    PHP
     <?= $content; ?>
 </div>
 <div class="content">

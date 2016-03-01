@@ -22,27 +22,43 @@ class Snippets extends \jacmoe\mdpages\components\snippets\Snippets
             <i class=\"fi-".$icon."\"></i></div>";
     }
 
-    public function inimage($title, $source, $align ="left", $width=320, $height=240, $size="large")
+    public function inimage($title, $source, $align ="left")
     {
+        $image_url = Url::home(true) . "images/" . $source;
+        $image_path = \Yii::getAlias('@app/web/images/') . $source;
+        $image_info = array_values(getimagesize($image_path));
+        list($width, $height, $type, $attr) = $image_info;
+
         return "<img src=\""
-            .Url::home(true)
-            ."images/".$source."\" alt=\"".$title
-            ."\" title=\"".$title."\" class=\"th gallery "
-            .$size." ".$align."\">";
+            . $target_url
+            . "\" alt=\"" . $title
+            . "\" title=\"" . $title
+            . (!isset($width) ? "" : " width=\"" . $width . "\" ")
+            . (!isset($height) ? "" : " height=\"" . $height . "\" ")
+            . "\" class=\"th gallery "
+            . $align . "\">";
     }
 
-    public function lightbox($title, $source, $target, $align ="left", $width=320, $height=240, $size="large")
+    public function lightbox($title, $source, $target, $align ="left")
     {
+        $target_url = Url::home(true) . "images/" . $target;
+        $image_url = Url::home(true) . "images/" . $source;
+        $image_path = \Yii::getAlias('@app/web/images/') . $source;
+        $image_info = array_values(getimagesize($image_path));
+        list($width, $height, $type, $attr) = $image_info;
+
         return "<a href=\""
-            .Url::home(true)
-            ."images/".$target."\" data-lightbox=\""
-            .$target."\" title=\"".$title
-            ."\" class=\"sb\"><img src=\""
-            .Url::home(true)
-            ."images/"
-            .$source."\" alt=\"".$title."\" title=\""
-            .$title."\" class=\"gallery th ".$size." "
-            .$align." floated image\"></a>";
+            . $target_url
+            . "\" data-lightbox=\""
+            . $target . "\" title=\"" . $title
+            . "\" class=\"sb\"><img src=\""
+            . $image_url
+            . "\" alt=\"" . $title . "\" title=\""
+            . $title . "\" class=\"gallery th "
+            . $align . " floated image\""
+            . (!isset($width) ? "" : " width=\"" . $width . "\" ")
+            . (!isset($height) ? "" : " height=\"" . $height . "\" ")
+            . "></a>";
     }
 
 }

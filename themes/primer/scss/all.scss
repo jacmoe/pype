@@ -1,1 +1,21 @@
+$body-font-size: 16px;
+
 @import "primer";
+
+header {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.toc {
+  position: relative;
+  float: right;
+  border: 1px dashed #999;
+  border-radius: 3px;
+  padding: 1em;
+  ol {
+    li {
+      list-style: none;
+    }
+  }
+}

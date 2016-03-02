@@ -3,6 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+
 use yii\helpers\Html;
 use jacmoe\mdpages\components\Nav;
 use yii\widgets\Breadcrumbs;

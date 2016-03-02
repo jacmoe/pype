@@ -10,6 +10,7 @@ html(lang=Yii::$app->language)
       .columns
         .one-fourth.column
           nav.menu.docs-menu
+            span.menu-heading Navigation
             !=Html::a('Home', Page::url('index'), ['class' => ($view->title == 'Pype') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Docs', Page::url('docs'), ['class' => ($view->title == 'Documentation') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Installation', Page::url('docs/install'), ['class' => ($view->title == 'Installation') ? 'menu-item selected' : 'menu-item'])
@@ -17,7 +18,8 @@ html(lang=Yii::$app->language)
             !=Html::a('Syntax', Page::url('docs/syntax'), ['class' => ($view->title == 'Syntax') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Theming', Page::url('docs/theming'), ['class' => ($view->title == 'Theming') ? 'menu-item selected' : 'menu-item'])
           nav.menu.docs-menu
-            !=Html::a('Pype on Github', 'https://github.com/jacmoe/pype', ['class' => 'menu-item'])
+            span.menu-heading External links
+            !=Html::a('Pype on Github', 'https://github.com/jacmoe/pype', ['class' => 'menu-item', 'target' => '_blank', 'rel' => 'external'])
         .three-fourths.column
           !=$content
       .columns

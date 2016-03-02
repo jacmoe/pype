@@ -1,0 +1,7 @@
+-use yii\helpers\Html
+-$view->title = 'No Pages'
+.blankslate
+  h1: !=Html::encode($view->title)
+  p There are no pages to render.
+  p Please initialize the page repository using the console command:
+    pre: code ./yii mdpages/pages/init

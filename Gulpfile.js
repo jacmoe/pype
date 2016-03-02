@@ -36,11 +36,6 @@ runSequence = require('run-sequence');
 var theme = 'default';
 
 var PATHS = {
-    sass: [
-        'vendor/bower/octicons/octicons/',
-        'vendor/bower/primer-css/scss/',
-        'vendor/bower/font-awesome/scss/'
-    ],
     javascript: [
         'vendor/bower/jquery/dist/jquery.js',
         'themes/primer/js/jquery.sticky.js',
@@ -100,7 +95,7 @@ gulp.task('images', function() {
 // Copy fonts
 gulp.task('fonts', function() {
     return gulp.src([
-        'vendor/bower/font-awesome/fonts/*'
+        'themes/primer/scss/font-awesome/fonts/*'
     ])
     .pipe(gulp.dest('./web/themes/primer/fonts'));
 });

@@ -43,6 +43,7 @@ task('deploy:build_assets', function () {
    runLocally('gulp build');
    upload(__DIR__ . '/web/themes/primer/css', '{{release_path}}/web/themes/primer/css');
    upload(__DIR__ . '/web/themes/primer/js', '{{release_path}}/web/themes/primer/js');
+   upload(__DIR__ . '/web/themes/primer/fonts', '{{release_path}}/web/themes/primer/fonts');
 })->desc('Build assets');
 
 // update symlink to images dir

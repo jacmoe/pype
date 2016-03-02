@@ -30,15 +30,3 @@ And, last - but not least: Pype is powered by the [Yii Framework](http://www.yii
 ```
 
 ## Work In Progress !!
-
-### Preliminary installation instructions:
-
-Create `deployer/stage/servers.yml` using `deployer/stage/servers.yml.sample`as a guide.
-
-Run `dep deploy production`
-
-Shell into the production server - go to `SITE_ROOT/current/`and run `./yii mdpages/pages/init`
-
-## TODO
-
-Stop hard-coding the yii2-mdpages-module so that other people can install it :)

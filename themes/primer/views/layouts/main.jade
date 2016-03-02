@@ -12,7 +12,7 @@ html(lang=Yii::$app->language)
           nav.menu.docs-menu
             span.menu-heading Navigation
             !=Html::a('Home', Page::url('index'), ['class' => ($view->title == 'Pype') ? 'menu-item selected' : 'menu-item'])
-            !=Html::a('Docs', Page::url('docs'), ['class' => ($view->title == 'Documentation') ? 'menu-item selected' : 'menu-item'])
+            !=Html::a('Docs', Page::url('docs'), ['class' => ($view->title == 'Docs') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Installation', Page::url('docs/install'), ['class' => ($view->title == 'Installation') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('How it works', Page::url('docs/how-it-works'), ['class' => ($view->title == 'How it works') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Syntax', Page::url('docs/syntax'), ['class' => ($view->title == 'Syntax') ? 'menu-item selected' : 'menu-item'])

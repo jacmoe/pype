@@ -12,7 +12,6 @@ html(lang=Yii::$app->language)
           nav.menu.docs-menu
             span.menu-heading Navigation
             !=Html::a('Home', Page::url('index'), ['class' => ($view->title == 'Pype') ? 'menu-item selected' : 'menu-item'])
-            !=Html::a('Docs', Page::url('docs'), ['class' => ($view->title == 'Docs') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Overview', Page::url('docs/overview'), ['class' => ($view->title == 'Overview') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Installation', Page::url('docs/install'), ['class' => ($view->title == 'Installation') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Configuration', Page::url('docs/configuration'), ['class' => ($view->title == 'Configuration') ? 'menu-item selected' : 'menu-item'])

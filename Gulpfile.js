@@ -48,10 +48,10 @@ var PATHS = {
     ]
 };
 
+//    includePaths: PATHS.sass
 var sassOptions = {
     errLogToConsole: true,
-    outputStyle: 'expanded',
-    includePaths: PATHS.sass
+    outputStyle: 'expanded'
 };
 
 var autoprefixerOptions = {

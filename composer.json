@@ -11,9 +11,7 @@
     "jacmoe/yii2-mdpages-module": "@dev",
     "jamesmoss/flywheel": "^0.4.2",
     "scrivo/highlight.php": "^9.0",
-    "jacmoe/yii2-tale-jade": "*",
-    "bower-asset/primer-css": "^2.7",
-    "bower-asset/font-awesome": "^4.5"
+    "jacmoe/yii2-tale-jade": "dev-master"
   },
   "require-dev": {
     "yiisoft/yii2-codeception": "*",

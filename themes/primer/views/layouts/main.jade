@@ -13,10 +13,13 @@ html(lang=Yii::$app->language)
             span.menu-heading Navigation
             !=Html::a('Home', Page::url('index'), ['class' => ($view->title == 'Pype') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Docs', Page::url('docs'), ['class' => ($view->title == 'Docs') ? 'menu-item selected' : 'menu-item'])
+            !=Html::a('Overview', Page::url('docs/overview'), ['class' => ($view->title == 'Overview') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Installation', Page::url('docs/install'), ['class' => ($view->title == 'Installation') ? 'menu-item selected' : 'menu-item'])
-            !=Html::a('How it works', Page::url('docs/how-it-works'), ['class' => ($view->title == 'How it works') ? 'menu-item selected' : 'menu-item'])
+            !=Html::a('Configuration', Page::url('docs/configuration'), ['class' => ($view->title == 'Configuration') ? 'menu-item selected' : 'menu-item'])
+            !=Html::a('Workflow', Page::url('docs/workflow'), ['class' => ($view->title == 'Workflow') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Syntax', Page::url('docs/syntax'), ['class' => ($view->title == 'Syntax') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Theming', Page::url('docs/theming'), ['class' => ($view->title == 'Theming') ? 'menu-item selected' : 'menu-item'])
+            !=Html::a('Advanced Topics', Page::url('docs/advanced-topics'), ['class' => ($view->title == 'Advanced topics') ? 'menu-item selected' : 'menu-item'])
           nav.menu.docs-menu
             span.menu-heading External links
             !=Html::a('Pype on Github', 'https://github.com/jacmoe/pype', ['class' => 'menu-item', 'target' => '_blank', 'rel' => 'external'])

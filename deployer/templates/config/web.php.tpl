@@ -3,7 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 $snippets = require(__DIR__ . '/snippets.php');
 
-$theme = 'default';
+$theme = 'primer';
 
 $config = [
     'id' => 'pype',

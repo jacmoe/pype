@@ -33,23 +33,25 @@ del = require('del'),
 gulpif = require('gulp-if'),
 runSequence = require('run-sequence');
 
+var theme = 'default';
+
 var PATHS = {
     sass: [
-        'vendor/bower/foundation-sites/scss',
-        'vendor/bower/motion-ui/src/',
+        'vendor/bower/octicons/octicons/',
+        'vendor/bower/primer-css/scss/',
         'vendor/bower/font-awesome/scss/'
     ],
     javascript: [
         'vendor/bower/jquery/dist/jquery.js',
-        'themes/default/js/jquery.sticky.js',
-        'themes/default/js/custom.js'
+        'themes/primer/js/jquery.sticky.js',
+        'themes/primer/js/custom.js'
     ]
 };
 
 var sassOptions = {
     errLogToConsole: true,
     outputStyle: 'expanded',
-    includePaths: require('node-neat').includePaths
+    includePaths: PATHS.sass
 };
 
 var autoprefixerOptions = {
@@ -59,15 +61,15 @@ var autoprefixerOptions = {
 
 // Styles
 gulp.task('styles', function() {
-    return gulp.src('themes/default/scss/all.scss')
+    return gulp.src('themes/primer/scss/all.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(autoprefixer(autoprefixerOptions))
-    .pipe(sourcemaps.write('.', { sourceRoot: '../../themes/default/scss/' }))
-    .pipe(gulp.dest('web/themes/default/css'))
+    .pipe(sourcemaps.write('.', { sourceRoot: '../../themes/primer/scss/' }))
+    .pipe(gulp.dest('web/themes/primer/css'))
     .pipe(gulpif('*.css', rename({ suffix: '.min' })))
     .pipe(gulpif('*.css', cssnano()))
-    .pipe(gulpif('*.css', gulp.dest('web/themes/default/css')))
+    .pipe(gulpif('*.css', gulp.dest('web/themes/primer/css')))
     .pipe(gulpif('*.css', notify({ message: 'Styles task complete' })));
 });
 
@@ -79,10 +81,10 @@ gulp.task('scripts', function() {
     .pipe(sourcemaps.init())
     .pipe(concat('all.js'))
     .pipe(sourcemaps.write('.', { sourceRoot: '../../js/' }))
-    .pipe(gulp.dest('web/themes/default/js'))
+    .pipe(gulp.dest('web/themes/primer/js'))
     .pipe(gulpif('*.js', rename({ suffix: '.min' })))
     .pipe(gulpif('*.js', uglify()))
-    .pipe(gulpif('*.js', gulp.dest('web/themes/default/js')))
+    .pipe(gulpif('*.js', gulp.dest('web/themes/primer/js')))
     .pipe(gulpif('*.js', notify({ message: 'Scripts task complete' })));
 });
 
@@ -99,19 +101,17 @@ gulp.task('fonts', function() {
     return gulp.src([
         'vendor/bower/font-awesome/fonts/*'
     ])
-    .pipe(gulp.dest('./web/fonts'));
+    .pipe(gulp.dest('./web/themes/primer/fonts'));
 });
 
 // Clean
 gulp.task('clean', function() {
-    return del(['web/themes/default/css/*', 'web/themes/default/js/*']);
-    //return del(['web/css/*', 'web/js/*', 'web/fonts/*']);
+    return del(['web/themes/primer/css/*', 'web/themes/primer/js/*', 'web/themes/primer/fonts/*']);
 });
 
 // Build the "web" folder by running all of the above tasks
 gulp.task('build', function(callback) {
-    runSequence('clean', ['styles', 'scripts'], callback);
-    //runSequence('clean', ['styles', 'scripts', 'fonts'], callback);
+    runSequence('clean', ['styles', 'scripts', 'fonts'], callback);
 });
 
 // Watch
@@ -119,24 +119,24 @@ gulp.task('watch', function() {
 
     // Initialize Browsersync
     browsersync.init({
-        proxy: "http://pype.dev"
+        proxy: "https://pype.dev"
     });
 
     // Watch .scss files
-    gulp.watch('themes/default/scss/**/*.scss', ['styles']);
+    gulp.watch('themes/primer/scss/**/*.scss', ['styles']);
 
     // Watch .js files
-    //gulp.watch('js/**/*.js', ['scripts']);
+    gulp.watch('themes/primer/js/**/*.js', ['scripts']);
 
     // Watch image files
     //gulp.watch('img/**/*', ['images']);
 
     // Watch any view files in 'views', reload on change
-    gulp.watch(['themes/default/views/**/*.php']).on('change', browsersync.reload);
+    gulp.watch(['themes/primer/views/**/*.php']).on('change', browsersync.reload);
 
     // Watch any files in 'web', reload on change
-    //gulp.watch(['web/js/*']).on('change', browsersync.reload);
-    gulp.watch(['web/themes/default/css/*']).on('change', browsersync.reload);
+    gulp.watch(['web/themes/primer/js/*']).on('change', browsersync.reload);
+    gulp.watch(['web/themes/primer/css/*']).on('change', browsersync.reload);
 });
 
 gulp.task('default', ['build', 'watch'], function() {});

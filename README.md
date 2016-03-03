@@ -15,6 +15,9 @@ The application should be easy to upgrade and manage.
 And, last - but not least: Pype is powered by the [Yii Framework](http://www.yiiframework.com/)
 
 
+[![Gitter chat](https://badges.gitter.im/jacmoe/pype.png)](https://gitter.im/jacmoe/pype)
+
+
 ```
 /*
 *  _ __  _   _ _ __   ___

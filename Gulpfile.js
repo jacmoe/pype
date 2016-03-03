@@ -60,10 +60,10 @@ gulp.task('styles', function() {
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(sourcemaps.write('.', { sourceRoot: '../../themes/primer/scss/' }))
-    .pipe(gulp.dest('web/themes/primer/css'))
+    .pipe(gulp.dest('themes/primer/dist/css'))
     .pipe(gulpif('*.css', rename({ suffix: '.min' })))
     .pipe(gulpif('*.css', cssnano()))
-    .pipe(gulpif('*.css', gulp.dest('web/themes/primer/css')))
+    .pipe(gulpif('*.css', gulp.dest('themes/primer/dist/css')))
     .pipe(gulpif('*.css', notify({ message: 'Styles task complete' })));
 });
 
@@ -75,10 +75,10 @@ gulp.task('scripts', function() {
     .pipe(sourcemaps.init())
     .pipe(concat('all.js'))
     .pipe(sourcemaps.write('.', { sourceRoot: '../../js/' }))
-    .pipe(gulp.dest('web/themes/primer/js'))
+    .pipe(gulp.dest('themes/primer/dist/js'))
     .pipe(gulpif('*.js', rename({ suffix: '.min' })))
     .pipe(gulpif('*.js', uglify()))
-    .pipe(gulpif('*.js', gulp.dest('web/themes/primer/js')))
+    .pipe(gulpif('*.js', gulp.dest('themes/primer/dist/js')))
     .pipe(gulpif('*.js', notify({ message: 'Scripts task complete' })));
 });
 
@@ -87,12 +87,12 @@ gulp.task('fonts', function() {
     return gulp.src([
         'themes/primer/scss/2-vendors/font-awesome/fonts/*'
     ])
-    .pipe(gulp.dest('./web/themes/primer/fonts'));
+    .pipe(gulp.dest('./themes/primer/dist/fonts'));
 });
 
 // Clean
 gulp.task('clean', function() {
-    return del(['web/themes/primer/css/*', 'web/themes/primer/js/*', 'web/themes/primer/fonts/*']);
+    return del(['themes/primer/dist/css/*', 'themes/primer/dist/js/*', 'themes/primer/dist/fonts/*']);
 });
 
 // Build the "web" folder by running all of the above tasks
@@ -119,8 +119,8 @@ gulp.task('watch', function() {
     gulp.watch(['themes/primer/views/**/*.php']).on('change', browsersync.reload);
 
     // Watch any files in 'web', reload on change
-    gulp.watch(['web/themes/primer/js/*']).on('change', browsersync.reload);
-    gulp.watch(['web/themes/primer/css/*']).on('change', browsersync.reload);
+    gulp.watch(['themes/primer/dist/js/*']).on('change', browsersync.reload);
+    gulp.watch(['themes/primer/dist/css/*']).on('change', browsersync.reload);
 });
 
 gulp.task('default', ['build', 'watch'], function() {});

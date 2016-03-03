@@ -34,10 +34,6 @@ task('deploy:configure_composer', function () {
   }
 })->desc('Configure composer');
 
-// uncomment the next two lines to run migrations
-//after('deploy:symlink', 'deploy:run_migrations');
-//after('inplace:configure', 'inplace:run_migrations');
-
 // build assets
 task('deploy:build_assets', function () {
    runLocally('gulp build');

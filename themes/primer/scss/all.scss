@@ -1,10 +1,6 @@
 $body-font-size: 16px;
 @import "1-common/all";
-@import "2-vendors/primer/primer";
-@import "2-vendors/lightbox";
-@import "2-vendors/anchor";
-@import "2-vendors/font-awesome/scss/font-awesome";
-@import "../../../vendor/scrivo/highlight.php/styles/solarized-light";
+@import "2-vendors/all";
 
 //
 // Overrides

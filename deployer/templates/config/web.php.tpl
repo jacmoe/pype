@@ -55,6 +55,10 @@ $config = [
                 '<module:\w+>/<controller:\w+>/<action:\w+>'=>'<module>/<controller>/<action>',
             ],
         ],
+        'assetManager' => [
+            'linkAssets' => true,
+            'appendTimestamp' => true,
+        ],
         'view' => [
             'defaultExtension' => 'jade',
             'renderers' => [

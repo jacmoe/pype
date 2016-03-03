@@ -1,9 +1,11 @@
 include partials/_viewtop.php
 //-include partials/_breadcrumbs.php
-h1: !=$page->title
-hr
-.description
-  !=$page->description
+.columns
+  .one-third.column
+    h1: !=$page->title
+  .two-thirds.column
+    .description
+      p: !=$page->description
 .content
   !=$content
 .content

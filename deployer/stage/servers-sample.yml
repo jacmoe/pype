@@ -11,7 +11,7 @@ prod_1:
         debug: false
         stage: 'prod'
 
-        template-engine:
+        template_engine:
             lifetime: 3600
 
         github:
@@ -37,7 +37,7 @@ dev_1:
         debug: true
         stage: 'dev'
 
-        template-engine:
+        template_engine:
             lifetime: 0
 
         github:

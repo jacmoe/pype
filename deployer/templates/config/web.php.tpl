@@ -67,7 +67,7 @@ $config = [
                     'cachePath' => '@runtime/Jade/cache',
                     'options' => [
                         'pretty' => true,
-                        'lifeTime' => {{app.template-engine.lifetime}},//3600 -> 1 hour
+                        'lifeTime' => {{app.template_engine.lifetime}},//3600 -> 1 hour
                     ],
                 ],
             ],

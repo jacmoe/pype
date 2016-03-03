@@ -19,6 +19,8 @@ And, last - but not least: Pype is powered by the [Yii Framework](http://www.yii
 
 [![Latest Stable Version](https://poser.pugx.org/jacmoe/pype/v/stable)](https://packagist.org/packages/jacmoe/pype) [![Total Downloads](https://poser.pugx.org/jacmoe/pype/downloads)](https://packagist.org/packages/jacmoe/pype) [![Latest Unstable Version](https://poser.pugx.org/jacmoe/pype/v/unstable)](https://packagist.org/packages/jacmoe/pype) [![License](https://poser.pugx.org/jacmoe/pype/license)](https://packagist.org/packages/jacmoe/pype)
 
+[![Yii2](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](http://www.yiiframework.com/)
+
 ```
 /*
 *  _ __  _   _ _ __   ___

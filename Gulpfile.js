@@ -22,7 +22,6 @@ autoprefixer = require('gulp-autoprefixer'),
 cssnano = require('gulp-cssnano'),
 jshint = require('gulp-jshint'),
 uglify = require('gulp-uglify'),
-imagemin = require('gulp-imagemin'),
 rename = require('gulp-rename'),
 concat = require('gulp-concat'),
 notify = require('gulp-notify'),
@@ -54,7 +53,6 @@ var autoprefixerOptions = {
     browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
 
-
 // Styles
 gulp.task('styles', function() {
     return gulp.src('themes/primer/scss/all.scss')
@@ -84,18 +82,10 @@ gulp.task('scripts', function() {
     .pipe(gulpif('*.js', notify({ message: 'Scripts task complete' })));
 });
 
-// Images
-gulp.task('images', function() {
-    return gulp.src('img/**/*')
-    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(gulp.dest('web/img'))
-    .pipe(notify({ message: 'Images task complete' }));
-});
-
 // Copy fonts
 gulp.task('fonts', function() {
     return gulp.src([
-        'themes/primer/scss/font-awesome/fonts/*'
+        'themes/primer/scss/2-vendors/font-awesome/fonts/*'
     ])
     .pipe(gulp.dest('./web/themes/primer/fonts'));
 });
@@ -123,9 +113,6 @@ gulp.task('watch', function() {
 
     // Watch .js files
     gulp.watch('themes/primer/js/**/*.js', ['scripts']);
-
-    // Watch image files
-    //gulp.watch('img/**/*', ['images']);
 
     // Watch any view files in 'views', reload on change
     gulp.watch(['themes/primer/views/**/*.jade']).on('change', browsersync.reload);

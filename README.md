@@ -30,3 +30,5 @@ And, last - but not least: Pype is powered by the [Yii Framework](http://www.yii
 ```
 
 ## Work In Progress !!
+
+[![Join the chat at https://gitter.im/jacmoe/pype](https://badges.gitter.im/jacmoe/pype.svg)](https://gitter.im/jacmoe/pype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)

@@ -15,11 +15,11 @@ use yii\web\AssetBundle;
  */
 class ThemeAsset extends AssetBundle
 {
-    public $sourcePath = '@app/themes/primer/dist';
+    public $sourcePath = '@app/themes/default/dist';
     public $css = [
-        'css/all.css',
+        YII_ENV_DEV ? 'css/all.css' : 'css/all.min.css'
     ];
     public $js = [
-        'js/all.js',
+        YII_ENV_DEV ? 'js/all.js' : 'js/all.min.js'
     ];
 }

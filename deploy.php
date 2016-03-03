@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/deployer/recipe/yii-configure.php';
 require_once __DIR__ . '/deployer/recipe/yii2-app-basic.php';
-require_once __DIR__ . '/deployer/recipe/in-place.php';
+require_once __DIR__ . '/deployer/recipe/local-config.php';
 /*
 * This file is part of
 *  _ __  _   _ _ __   ___
@@ -48,7 +48,6 @@ task('deploy:images_symlink', function () {
 })->desc('Update images symlink');
 
 after('deploy:shared', 'deploy:configure');
-before('inplace:vendors', 'deploy:configure_composer');
 before('deploy:vendors', 'deploy:configure_composer');
 after('deploy:vendors', 'deploy:build_assets');
 after('deploy:build_assets', 'deploy:images_symlink');

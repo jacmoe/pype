@@ -1,4 +1,4 @@
-# list servers
+# Pype Configuration
 # -------------
 prod_1:
     host: hostname

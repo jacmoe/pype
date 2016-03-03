@@ -28,6 +28,7 @@ return [
         'github_token' => '{{app.github.token}}',
         'github_owner' => '{{app.github.owner}}',
         'github_repo' => '{{app.github.repo}}',
+        'github_branch' => '{{app.github.branch}}',
         'absolute_wikilinks' => true,
         'generate_page_toc' => true,
         'snippets' => $snippets,

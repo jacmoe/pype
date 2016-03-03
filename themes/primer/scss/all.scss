@@ -1,55 +1,6 @@
 @import "1-common/all";
 @import "2-vendors/all";
-
-//
-// Overrides
-//
-
-// Global type
-html {
-  font-size: 16px;
-}
-
-body {
-  font-family: "Helvetica Neue", $body-font;
-  font-size: 1rem;
-}
-
-// Make containers responsive
-.container {
-  width: auto;
-  max-width: 1020px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.markdown-body {
-  overflow: visible;
-}
-
-
-//
-// Custom button
-//
-
-.btn-reverse {
-  color: #fff;
-  background: none;
-  border: 1px solid #fff;
-
-  &:hover,
-  &:active {
-    color: $brand-blue;
-    background: #fff;
-    border-color: #fff;
-    box-shadow: none;
-  }
-}
-
-
-//
-// Site header
-//
+@import "3-global/all";
 
 .masthead {
   padding-top:    1rem;
@@ -114,67 +65,6 @@ body {
   }
 }
 
-
-//
-// Homepage jumbotron
-//
-
-.jumbotron {
-  margin-top: -2rem;
-  margin-bottom: 3rem;
-  padding-top: 2rem;
-  padding-bottom: 4rem;
-  background-color: $brand-blue;
-  font-size: 1.25rem;
-  color: #fff;
-  text-align: center;
-
-  h1 {
-    font-size: 2.5em;
-    font-weight: normal;
-  }
-
-  .btn {
-    padding: .75em 1.15em;
-    font-size: inherit;
-    font-weight: normal;
-    line-height: 1;
-  }
-
-  @media (min-width: 34em) {
-    padding-top: 6rem;
-    padding-bottom: 8rem;
-    font-size: 1.5rem;
-    text-align: left;
-  }
-}
-
-.about-that {
-
-  @media (max-width: 760px) {
-    .column {
-      float: none;
-      width: 100%;
-      margin-bottom: 30px;
-    }
-  }
-
-  p {
-    padding-right: .5rem;
-    color: #555;
-    line-height: 1.5;
-  }
-
-  h2 {
-    font-weight: normal;
-  }
-}
-
-
-//
-// Layout
-//
-
 // Override the default layout to make it stack
 .docs-layout {
   @media (max-width: 34em) {
@@ -202,7 +92,6 @@ body {
   }
 }
 
-
 //
 // Side menu
 //
@@ -216,125 +105,9 @@ body {
   }
 }
 
-
-//
-// Examples
-//
-
-.docs-example {
-  position: relative;
-  padding: 15px;
-  font-size: 13px;
-  line-height: 1.4;
-  border: 1px solid #e5e5e5;
-  border-radius: .25rem .25rem 0 0;
-
-  + .highlight {
-    margin-top: -1px;
-    border: 1px solid #e5e5e5;
-    border-radius: 0 0 .25rem .25rem;
-  }
-
-  > p:last-child,
-  > .menu:last-child,
-  > .tabnav:last-child,
-  > blockquote:last-child {
-    margin-bottom: 0;
-  }
-
-  .menu,
-  .filter-list,
-  .sunken-menu {
-    max-width: 200px;
-  }
-
-  // Grid
-  .container {
-    width: 100%;
-    padding-left: $grid-gutter;
-    padding-right: $grid-gutter;
-  }
-  .columns + .columns {
-    margin-top: 10px;
-  }
-  .column {
-    padding: $grid-gutter;
-    font-family: $mono-font;
-    background-color: lighten($brand-green, 40%);
-    border: 1px solid lighten($brand-green, 30%);
-  }
-
-  // Override Markdown styles to restore values from `_type.scss`
-  ul,
-  ol {
-    padding: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  dl.form {
-    margin: 15px 0;
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    > dt {
-      margin: 0 0 6px;
-      font-style: normal;
-    }
-
-    > dd {
-      padding: 0;
-      margin-bottom: 0;
-    }
-  }
-
-  // Flex table
-  .flex-table-item > .btn {
-    margin-left: 10px;
-  }
-}
-
 .page-title + .markdown-body > p:first-child {
   @extend .lead;
 }
-
-
-//
-// Markdown generated ToC
-//
-
-// Hide the first child li because it's always going to be "Contents".
-#markdown-toc > li:first-child {
-  display: none;
-}
-
-
-//
-// Branding colors
-//
-
-.swatch {
-  display: inline-block;
-  width: 6rem;
-  height: 6rem;
-  border-radius: .25rem;
-}
-
-.swatch-blue { background-color: $brand-blue; }
-.swatch-green { background-color: $brand-green; }
-.swatch-red { background-color: $brand-red; }
-.swatch-orange { background-color: $brand-orange; }
-.swatch-purple { background-color: $brand-purple; }
-
-.swatch-gray-light { background-color: $brand-gray-light; }
-.swatch-gray { background-color: $brand-gray; }
-.swatch-gray-dark { background-color: $brand-gray-dark; }
 
 .toc {
   position: relative;

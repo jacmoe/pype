@@ -5,5 +5,6 @@ hr
   !=$content
 .content
   hr
-  h3 Contributors to this page
+  !=Html::a(' Edit on Github', $view->params['github-link'], array('target' => '_blank', 'class' => 'fa fa-github right'))
+  p: strong: small Contributors to this page
   include partials/_contributors.php

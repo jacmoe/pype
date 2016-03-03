@@ -1,0 +1,16 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Helvetica Neue", $body-font;
+  font-size: 1rem;
+}
+
+// Make containers responsive
+.container {
+  width: auto;
+  max-width: 1020px;
+  padding-left: 20px;
+  padding-right: 20px;
+}

@@ -1,10 +1,20 @@
 {
   "name": "jacmoe/pype",
   "description": "Personal Yii Page Engine",
-  "keywords": ["yii2", "framework", "basic", "sass", "gulp", "project template"],
-  "type": "yii2-extension",
+  "keywords": ["yii2", "flat-file", "markdown", "git", "gulp", "wiki", "project template"],
+  "type": "project",
   "license": "MIT",
   "minimum-stability": "dev",
+  "authors": [
+      {
+          "name": "Jacob Moen",
+          "email": "jacmoe.dk@gmail.com"
+      }
+  ],
+  "support": {
+      "issues": "https://github.com/jacmoe/pype/issues?state=open",
+      "source": "https://github.com/jacmoe/pype"
+  },
   "require": {
     "php": ">=5.4.0",
     "yiisoft/yii2": ">=2.0.5",
@@ -19,12 +29,6 @@
     "yiisoft/yii2-gii": "*",
     "yiisoft/yii2-faker": "*"
 },
-      "repositories": [
-          {
-              "type": "vcs",
-              "url": "https://github.com/jacmoe/yii2-mdpages-module"
-          }
-      ],
   "config": {
     "process-timeout": 1800
   },

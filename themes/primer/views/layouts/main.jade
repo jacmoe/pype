@@ -22,7 +22,7 @@ html(lang=Yii::$app->language)
             !=Html::a('Advanced Topics', Page::url('docs/advanced-topics'), ['class' => ($view->title == 'Advanced topics') ? 'menu-item selected' : 'menu-item'])
           nav.menu.docs-menu
             span.menu-heading External links
-            !=Html::a('Pype on Github', 'https://github.com/jacmoe/pype', ['class' => 'menu-item', 'target' => '_blank', 'rel' => 'external'])
+            !=Html::a(' Source code', 'https://github.com/jacmoe/pype', ['class' => 'menu-item fa fa-github', 'target' => '_blank', 'rel' => 'external'])
             !=Html::a(Html::img("https://camo.githubusercontent.com/9ceaa1c06e5c896aed29a269078c293ab4bb8bdb/68747470733a2f2f6261646765732e6769747465722e696d2f6a61636d6f652f707970652e737667", array('style' => 'max-width:100%;', 'data-canonical-src' => 'https://badges.gitter.im/jacmoe/pype.svg', 'alt' => 'Join the chat at https://gitter.im/jacmoe/pype', 'title' => 'Join the chat at https://gitter.im/jacmoe/pype')), 'https://gitter.im/jacmoe/pype?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge', ['class' => 'menu-item', 'target' => '_blank', 'rel' => 'external'])
             !=Html::a(Html::img("https://camo.githubusercontent.com/2db1cd364c3f174c72d4c97430c35cb262dc9685/68747470733a2f2f706f7365722e707567782e6f72672f6a61636d6f652f707970652f762f737461626c65", array('style' => 'max-width:100%;', 'data-canonical-src' => 'https://poser.pugx.org/jacmoe/pype/v/stable', 'alt' => 'Latest Stable Version', 'title' => 'Pype @ Packagist')), 'https://packagist.org/packages/jacmoe/pype', ['class' => 'menu-item', 'target' => '_blank', 'rel' => 'external'])
         .three-fourths.column

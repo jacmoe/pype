@@ -5,6 +5,8 @@ html {
 body {
   font-family: "Helvetica Neue", $body-font;
   font-size: 1rem;
+  max-width:100%;
+  width:100%;
 }
 
 // Make containers responsive
@@ -13,4 +15,9 @@ body {
   max-width: 1020px;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.imagewrap img {
+  max-width:100%;
+  height:auto;
 }

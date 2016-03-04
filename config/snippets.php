@@ -43,14 +43,16 @@ class Snippets extends \jacmoe\mdpages\components\snippets\Snippets
             list($width, $height, $type, $attr) = $image_info;
         }
 
-        return "<img src=\""
+        return "<div class=\"imagewrap\">"
+            . "<img src=\""
             . $image_url
             . "\" alt=\"" . $title
             . "\" title=\"" . $title . "\""
             . (!isset($width) ? "" : " width=\"" . $width . "\" ")
             . (!isset($height) ? "" : " height=\"" . $height . "\" ")
             . "class=\"th gallery "
-            . $align . "\">";
+            . $align . "\">"
+            . "</div>";
     }
 
     public function lightbox($title, $source, $target, $align ="left")
@@ -67,14 +69,14 @@ class Snippets extends \jacmoe\mdpages\components\snippets\Snippets
             . $target_url
             . "\" data-lightbox=\""
             . $target . "\" title=\"" . $title
-            . "\" class=\"sb\"><img src=\""
+            . "\" class=\"sb\"><div class=\"imagewrap\"><img src=\""
             . $image_url
             . "\" alt=\"" . $title . "\" title=\""
             . $title . "\" class=\"gallery th "
             . $align . " floated image\""
             . (!isset($width) ? "" : " width=\"" . $width . "\" ")
             . (!isset($height) ? "" : " height=\"" . $height . "\" ")
-            . "></a>";
+            . "></div></a>";
     }
 
 }

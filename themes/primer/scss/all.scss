@@ -114,6 +114,9 @@
 }
 
 .toc {
+  @media (max-width: 80em) {
+    visibility: hidden;
+  }
   position: relative;
   float: right;
   border: 1px dashed #999;

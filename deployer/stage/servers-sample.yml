@@ -10,6 +10,7 @@ prod_1:
     app:
         debug: false
         stage: 'prod'
+        theme: 'default'
 
         template_engine:
             lifetime: 3600
@@ -36,6 +37,7 @@ dev_1:
     app:
         debug: true
         stage: 'dev'
+        theme: 'default'
 
         template_engine:
             lifetime: 0

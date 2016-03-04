@@ -15,7 +15,7 @@
 $params = require(__DIR__ . '/params.php');
 $snippets = require(__DIR__ . '/snippets.php');
 
-$theme = 'primer';
+$theme = '{{app.theme}}';
 
 $config = [
     'id' => 'pype',

@@ -32,14 +32,12 @@ del = require('del'),
 gulpif = require('gulp-if'),
 runSequence = require('run-sequence');
 
-var theme = '{{app.theme}}';
-
 var PATHS = {
     javascript: [
         'vendor/bower/jquery/dist/jquery.js',
-        'themes/' + theme + '/js/jquery.sticky.js',
-        'themes/' + theme + '/js/lightbox.js',
-        'themes/' + theme + '/js/custom.js'
+        'themes/primer/js/jquery.sticky.js',
+        'themes/primer/js/lightbox.js',
+        'themes/primer/js/custom.js'
     ]
 };
 
@@ -55,15 +53,15 @@ var autoprefixerOptions = {
 
 // Styles
 gulp.task('styles', function() {
-    return gulp.src('themes/' + theme + '/scss/all.scss')
+    return gulp.src('themes/primer/scss/all.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(autoprefixer(autoprefixerOptions))
-    .pipe(sourcemaps.write('.', { sourceRoot: '../../themes/' + theme + '/scss/' }))
-    .pipe(gulp.dest('themes/' + theme + '/dist/css'))
+    .pipe(sourcemaps.write('.', { sourceRoot: '../../themes/primer/scss/' }))
+    .pipe(gulp.dest('themes/primer/dist/css'))
     .pipe(gulpif('*.css', rename({ suffix: '.min' })))
     .pipe(gulpif('*.css', cssnano()))
-    .pipe(gulpif('*.css', gulp.dest('themes/' + theme + '/dist/css')))
+    .pipe(gulpif('*.css', gulp.dest('themes/primer/dist/css')))
     .pipe(gulpif('*.css', notify({ message: 'Styles task complete' })));
 });
 
@@ -75,24 +73,24 @@ gulp.task('scripts', function() {
     .pipe(sourcemaps.init())
     .pipe(concat('all.js'))
     .pipe(sourcemaps.write('.', { sourceRoot: '../../js/' }))
-    .pipe(gulp.dest('themes/' + theme + '/dist/js'))
+    .pipe(gulp.dest('themes/primer/dist/js'))
     .pipe(gulpif('*.js', rename({ suffix: '.min' })))
     .pipe(gulpif('*.js', uglify()))
-    .pipe(gulpif('*.js', gulp.dest('themes/' + theme + '/dist/js')))
+    .pipe(gulpif('*.js', gulp.dest('themes/primer/dist/js')))
     .pipe(gulpif('*.js', notify({ message: 'Scripts task complete' })));
 });
 
 // Copy fonts
 gulp.task('fonts', function() {
     return gulp.src([
-        'themes/' + theme + '/scss/2-vendors/font-awesome/fonts/*'
+        'themes/primer/scss/2-vendors/font-awesome/fonts/*'
     ])
-    .pipe(gulp.dest('./themes/' + theme + '/dist/fonts'));
+    .pipe(gulp.dest('./themes/primer/dist/fonts'));
 });
 
 // Clean
 gulp.task('clean', function() {
-    return del(['themes/' + theme + '/dist/css/*', 'themes/' + theme + '/dist/js/*', 'themes/' + theme + '/dist/fonts/*']);
+    return del(['themes/primer/dist/css/*', 'themes/primer/dist/js/*', 'themes/primer/dist/fonts/*']);
 });
 
 // Build the "web" folder by running all of the above tasks
@@ -109,18 +107,18 @@ gulp.task('watch', function() {
     });
 
     // Watch .scss files
-    gulp.watch('themes/' + theme + '/scss/**/*.scss', ['styles']);
+    gulp.watch('themes/primer/scss/**/*.scss', ['styles']);
 
     // Watch .js files
-    gulp.watch('themes/' + theme + '/js/**/*.js', ['scripts']);
+    gulp.watch('themes/primer/js/**/*.js', ['scripts']);
 
     // Watch any view files in 'views', reload on change
-    gulp.watch(['themes/' + theme + '/views/**/*.jade']).on('change', browsersync.reload);
-    gulp.watch(['themes/' + theme + '/views/**/*.php']).on('change', browsersync.reload);
+    gulp.watch(['themes/primer/views/**/*.jade']).on('change', browsersync.reload);
+    gulp.watch(['themes/primer/views/**/*.php']).on('change', browsersync.reload);
 
     // Watch any files in 'web', reload on change
-    gulp.watch(['themes/' + theme + '/dist/js/*']).on('change', browsersync.reload);
-    gulp.watch(['themes/' + theme + '/dist/css/*']).on('change', browsersync.reload);
+    gulp.watch(['themes/primer/dist/js/*']).on('change', browsersync.reload);
+    gulp.watch(['themes/primer/dist/css/*']).on('change', browsersync.reload);
 });
 
 gulp.task('default', ['build', 'watch'], function() {});

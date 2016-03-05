@@ -1,0 +1,53 @@
+@import "reset";
+@import "bourbon";
+@import "core/base";
+@import "neat";
+@import "../../../vendor/scrivo/highlight.php/styles/github";
+
+body {
+  margin: 0 0 ($base-spacing * 2);
+}
+
+header {
+  padding-top: 2em;
+  @include outer-container;
+  .top-bar {
+    .top-bar-left {
+      @include span-columns(3);
+      ul li.logo {
+        position: relative;
+        top: -0.6em;
+      }
+    }
+    .top-bar-right {
+      @include span-columns(9);
+    }
+  }
+}
+main {
+  @include outer-container;
+  .content {
+    @include span-columns(12);
+  }
+}
+footer {
+  padding-top: 3em;
+  @include outer-container;
+  div {
+    text-align: right;
+  }
+  .powered {
+    @include span-columns(6);
+  }
+  .copyright {
+    @include span-columns(6);
+  }
+}
+
+.toc {
+  position: relative;
+  float: right;
+  border: 1px dashed #999;
+  border-radius: 3px;
+  padding: 1em;
+}

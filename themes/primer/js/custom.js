@@ -1,10 +1,10 @@
 $(document).ready(function() {
-  $(".toc").sticky({ topSpacing: 50 });
+  $(".toc").sticky({ topSpacing: +10 });
 
   // Cache selectors
   var lastId,
       topMenu = $(".toc"),
-      topMenuHeight = topMenu.outerHeight()+15,
+      topMenuHeight = topMenu.outerHeight()-146,
       // All list items
       menuItems = topMenu.find("a"),
       // Anchors corresponding to menu items

@@ -127,5 +127,12 @@
     li {
       list-style: none;
     }
+    li.active {
+      a {
+        background-color: #FDF6E3;
+        font-weight: bolder;
+      }
+    }
   }
 }
+

@@ -1,0 +1,5 @@
+# Ignore stuff
+/.editorconfig      export-ignore
+/.gitattributes     export-ignore
+/res                export-ignore
+/pype.png           export-ignore

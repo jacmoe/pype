@@ -43,7 +43,7 @@ class Snippets extends \jacmoe\mdpages\components\snippets\Snippets
             list($width, $height, $type, $attr) = $image_info;
         }
 
-        return "<div class=\"imagewrap\">"
+        return "<span class=\"imagewrap\">"
             . "<img src=\""
             . $image_url
             . "\" alt=\"" . $title
@@ -52,7 +52,7 @@ class Snippets extends \jacmoe\mdpages\components\snippets\Snippets
             . (!isset($height) ? "" : " height=\"" . $height . "\" ")
             . "class=\"th gallery "
             . $align . "\">"
-            . "</div>";
+            . "</span>";
     }
 
     public function lightbox($title, $source, $target, $align ="left")

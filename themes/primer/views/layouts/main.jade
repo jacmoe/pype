@@ -20,6 +20,7 @@ html(lang=Yii::$app->language)
             !=Html::a('Syntax', Page::url('docs/syntax'), ['class' => ($view->title == 'Syntax') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Theming', Page::url('docs/theming'), ['class' => ($view->title == 'Theming') ? 'menu-item selected' : 'menu-item'])
             !=Html::a('Advanced Topics', Page::url('docs/advanced-topics'), ['class' => ($view->title == 'Advanced topics') ? 'menu-item selected' : 'menu-item'])
+            !=Html::a('Showcase', Page::url('docs/showcase'), ['class' => ($view->title == 'Showcase') ? 'menu-item selected' : 'menu-item'])
           nav.menu.docs-menu
             span.menu-heading External links
             !=Html::a(' Source code', 'https://github.com/jacmoe/pype', ['class' => 'menu-item fa fa-github', 'target' => '_blank', 'rel' => 'external'])

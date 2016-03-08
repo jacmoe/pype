@@ -18,7 +18,7 @@
   "require": {
     "php": ">=5.4.0",
     "yiisoft/yii2": ">=2.0.5",
-    "jacmoe/yii2-mdpages-module": "@dev",
+    "jacmoe/yii2-mdpages-module": "dev-master",
     "jacmoe/yii2-tale-jade": "dev-master"
   },
   "require-dev": {

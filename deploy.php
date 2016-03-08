@@ -47,7 +47,13 @@ task('deploy:images_symlink', function () {
     run('php {{release_path}}/yii mdpages/pages/symlink');
 })->desc('Update images symlink');
 
+// flush the cache
+task('deploy:flush_cache', function () {
+    run('php {{release_path}}/yii cache/flush-all');
+})->desc('Flush the cache');
+
 after('deploy:shared', 'deploy:configure');
 before('deploy:vendors', 'deploy:configure_composer');
 after('deploy:vendors', 'deploy:build_assets');
 after('deploy:build_assets', 'deploy:images_symlink');
+after('deploy:images_symlink', 'deploy:flush_cache');

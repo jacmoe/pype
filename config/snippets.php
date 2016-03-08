@@ -66,17 +66,19 @@ class Snippets extends \jacmoe\mdpages\components\snippets\Snippets
         }
 
         return "<a href=\""
-            . $target_url
-            . "\" data-lightbox=\""
-            . $target . "\" title=\"" . $title
-            . "\" class=\"sb\"><div class=\"imagewrap\"><img src=\""
+            . $target_url . "\""
+            . " data-lightbox=\""
+            . str_replace('.', '_', str_replace('/', '_', $target)) . "\""
+            . " data-title=\"" . $title . "\""
+            . " title=\"" . $title
+            . "\" class=\"sb\"><span class=\"imagewrap\"><img src=\""
             . $image_url
             . "\" alt=\"" . $title . "\" title=\""
             . $title . "\" class=\"gallery th "
             . $align . " floated image\""
             . (!isset($width) ? "" : " width=\"" . $width . "\" ")
             . (!isset($height) ? "" : " height=\"" . $height . "\" ")
-            . "></div></a>";
+            . "/></span></a>";
     }
 
 }

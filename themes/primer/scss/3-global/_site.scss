@@ -26,11 +26,10 @@ footer {
   padding-bottom: 3em;
 }
 
-.content {
-  .updated {
-    float: right;
-    position: relative;
-    top: -1.5em;
-    color: $brand-gray-light;
-  }
+.updated {
+  float: right;
+  position: relative;
+  top: -1em;
+  color: $brand-gray-light;
+  margin-bottom: -1em;
 }

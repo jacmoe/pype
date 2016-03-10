@@ -26,6 +26,7 @@ rename = require('gulp-rename'),
 concat = require('gulp-concat'),
 notify = require('gulp-notify'),
 cache = require('gulp-cache'),
+spritesmith = require('gulp.spritesmith'),
 browsersync = require('browser-sync'),
 sourcemaps = require('gulp-sourcemaps'),
 del = require('del'),
@@ -65,6 +66,18 @@ gulp.task('styles', function() {
     .pipe(gulpif('*.css', notify({ message: 'Styles task complete' })));
 });
 
+// sprites
+gulp.task('sprites', function () {
+    var spriteData = gulp.src('web/avatars/*')
+        .pipe(spritesmith({
+            imgName: '../img/sprite.png',
+            cssName: 'contributors.css',
+            padding: 2
+        }));
+    spriteData.img.pipe(gulp.dest('web/img'));
+    spriteData.css.pipe(gulp.dest('themes/primer/scss/2-vendors'));
+});
+
 // Scripts
 gulp.task('scripts', function() {
     return gulp.src(PATHS.javascript)
@@ -95,7 +108,7 @@ gulp.task('clean', function() {
 
 // Build the "web" folder by running all of the above tasks
 gulp.task('build', function(callback) {
-    runSequence('clean', ['styles', 'scripts', 'fonts'], callback);
+    runSequence('clean', 'sprites', ['styles', 'scripts', 'fonts'], callback);
 });
 
 // Watch

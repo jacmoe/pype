@@ -96,5 +96,18 @@ task('local-config', function () {
             }
         }
 
+        $theme = env('app.theme');
+        echo $theme . "\n";
+        $finder   = new \Symfony\Component\Finder\Finder();
+        $iterator = $finder
+        ->ignoreDotFiles(false)
+        ->files()
+        ->name('/\.*$/')
+        ->in(getcwd() . '/themes/' . $theme . '/build');
+        foreach ($iterator as $file) {
+            upload($file, "$releaseDir/" . $file->getRelativePathname());
+            writeln(sprintf("<info>✔</info> %s", $file->getRelativePathname()));
+        }
+
     }
 })->desc('Configures your local development environment')->onlyForStage('local');

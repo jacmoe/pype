@@ -74,7 +74,7 @@ gulp.task('sprites', function () {
             cssName: 'contributors.css',
             padding: 2
         }));
-    spriteData.img.pipe(gulp.dest('web/img'));
+    spriteData.img.pipe(gulp.dest('themes/primer/dist/img'));
     spriteData.css.pipe(gulp.dest('themes/primer/scss/2-vendors'));
 });
 

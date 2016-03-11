@@ -18,6 +18,9 @@ require_once __DIR__ . '/deployer/recipe/local-config.php';
 if (!file_exists (__DIR__ . '/deployer/stage/servers.yml')) {
   die('Please create "' . __DIR__ . '/deployer/stage/servers.yml" before continuing.' . "\n");
 }
+if (!file_exists (__DIR__ . '/Gulpfile.js')) {
+  die('You need to run "dep local-config local" to create the initial configuration files before continuing.' . "\n");
+}
 serverList(__DIR__ . '/deployer/stage/servers.yml');
 set('repository', '{{repository}}');
 

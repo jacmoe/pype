@@ -37,10 +37,11 @@ task('deploy:configure_composer', function () {
 // build assets
 task('deploy:build_assets', function () {
    runLocally('gulp build');
-   upload(__DIR__ . '/themes/primer/dist/css', '{{release_path}}/themes/primer/dist/css');
-   upload(__DIR__ . '/themes/primer/dist/js', '{{release_path}}/themes/primer/dist/js');
-   upload(__DIR__ . '/themes/primer/dist/fonts', '{{release_path}}/themes/primer/dist/fonts');
-   upload(__DIR__ . '/themes/primer/dist/img', '{{release_path}}/themes/primer/dist/img');
+   $theme = env('app.theme');
+   upload(__DIR__ . '/themes/' . $theme . '/dist/css', '{{release_path}}/themes/' . $theme . '/dist/css');
+   upload(__DIR__ . '/themes/' . $theme . '/dist/js', '{{release_path}}/themes/' . $theme . '/dist/js');
+   upload(__DIR__ . '/themes/' . $theme . '/dist/fonts', '{{release_path}}/themes/' . $theme . '/dist/fonts');
+   upload(__DIR__ . '/themes/' . $theme . '/dist/img', '{{release_path}}/themes/' . $theme . '/dist/img');
 })->desc('Build assets');
 
 // update symlink to images dir

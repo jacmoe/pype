@@ -97,7 +97,6 @@ task('local-config', function () {
         }
 
         $theme = env('app.theme');
-        echo $theme . "\n";
         $finder   = new \Symfony\Component\Finder\Finder();
         $iterator = $finder
         ->ignoreDotFiles(false)

@@ -38,6 +38,7 @@ var PATHS = {
         'vendor/bower/jquery/dist/jquery.js',
         'themes/primer/js/jquery.sticky.js',
         'themes/primer/js/lightbox.js',
+        'themes/primer/js/jquery.cookiesdirective.js',
         'themes/primer/js/custom.js'
     ]
 };

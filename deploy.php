@@ -39,7 +39,7 @@ task('deploy:configure_composer', function () {
 
 // build assets
 task('deploy:build_assets', function () {
-   runLocally('gulp build');
+   runLocally('gulp build --production');
    $theme = env('app.theme');
    upload(__DIR__ . '/themes/' . $theme . '/assets/dist/css', '{{release_path}}/themes/' . $theme . '/assets/dist/css');
    upload(__DIR__ . '/themes/' . $theme . '/assets/dist/js', '{{release_path}}/themes/' . $theme . '/assets/dist/js');

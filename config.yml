@@ -1,5 +1,5 @@
 # Your project's server will run on proxy
-PROXY: "https://bugitor.dev"
+PROXY: "https://pype.dev"
 
 # Autoprefixer will make sure your CSS works with these browsers
 COMPATIBILITY:
@@ -14,20 +14,17 @@ PATHS:
   src: "themes/primer/assets/src"
   # Paths to fonts
   fonts:
-    - "vendor/bower/font-awesome/fonts/**/*"
-    - "vendor/bower/bootstrap/fonts/**/*"
+    - "themes/primer/assets/src/fonts/font-awesome/**/*"
+  # Paths to images
+  images:
+    - "themes/primer/assets/src/img/**/*"
   # Paths to Sass libraries, which can then be loaded with @import
   sass:
-    - "vendor/bower/bootstrap-sass/assets/stylesheets"
-    - "vendor/bower/font-awesome/scss"
-    - "vendor/bower/sass-rem"
+    - "vendor/scrivo/highlight.php/styles"
   # Paths to JavaScript libraries, which are combined into one file
   javascript:
     - "vendor/bower/jquery/dist/jquery.js"
-    - "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap.js"
-    - "vendor/yiisoft/yii2/assets/yii.js"
-    - "vendor/yiisoft/yii2/assets/yii.validation.js"
-    - "vendor/yiisoft/yii2/assets/yii.activeForm.js"
-    # Paths to your own project code are here
-    - "themes/primer/assets/src/js/!(custom).js"
+    - "themes/primer/assets/src/js/jquery.sticky.js"
+    - "themes/primer/assets/src/js/lightbox.js"
+    - "themes/primer/assets/src/js/jquery.cookiesdirective.js"
     - "themes/primer/assets/src/js/custom.js"

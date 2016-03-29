@@ -72,6 +72,12 @@ function fonts() {
     .pipe(gulp.dest(config.PATHS.dist + '/fonts'));
 };
 
+// Copy images
+function images() {
+  return gulp.src(config.PATHS.images)
+    .pipe(gulp.dest(config.PATHS.dist + '/img'));
+};
+
 // Clean
 function clean(done) {
     rimraf(config.PATHS.dist, done);
@@ -80,7 +86,7 @@ function clean(done) {
 // The main build task
 gulp.task('build', gulp.series(
   clean,
-  gulp.parallel(styles, scripts, fonts)
+  gulp.parallel(styles, scripts, fonts, images)
 ));
 
 // Watch
@@ -105,8 +111,9 @@ function watch() {
 // Default task runs build and then watch
 gulp.task('default', gulp.series('build', watch));
 
-// Export these function to the Gulp client
+// Export these functions to the Gulp client
 gulp.task('clean', clean);
 gulp.task('fonts', fonts);
+gulp.task('images', images);
 gulp.task('styles', styles);
 gulp.task('scripts', scripts);

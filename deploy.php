@@ -18,9 +18,16 @@ require_once __DIR__ . '/deployer/recipe/local-config.php';
 if (!file_exists (__DIR__ . '/deployer/stage/servers.yml')) {
   die('Please create "' . __DIR__ . '/deployer/stage/servers.yml" before continuing.' . "\n");
 }
-// if (!file_exists (__DIR__ . '/gulpfile.js')) {
-//   die('You need to run "dep local-config local" to create the initial configuration files before continuing.' . "\n");
-// }
+if (!file_exists (__DIR__ . '/gulpfile.js')) {
+    $command = end(explode(DIRECTORY_SEPARATOR, $argv[0]));
+    if(isset($argv[2])) {
+        if(($argv[1] . ' ' . $argv[2] != 'local-config local')) {
+            die('You need to run "' . $command . ' local-config local" to create the initial configuration files before continuing.' . "\n");
+        }
+    } else {
+        die('You need to run "' . $command . ' local-config local" to create the initial configuration files before continuing.' . "\n");
+    }
+}
 serverList(__DIR__ . '/deployer/stage/servers.yml');
 set('repository', '{{repository}}');
 

@@ -66,6 +66,19 @@ function scripts() {
     .pipe($.notify({ message: 'Scripts task complete' }));
 };
 
+// sprites
+function sprites() {
+    var spriteData = gulp.src('web/avatars/*')
+        .pipe($.spritesmith({
+            imgName: '../img/sprite.png',
+            cssName: 'contributors.css',
+            padding: 2
+        }));
+    spriteData.img.pipe(gulp.dest(config.PATHS.dist + '/img'));
+    spriteData.css.pipe(gulp.dest(config.PATHS.src + '/scss/2-vendors'));
+    return spriteData;
+};
+
 // Copy fonts
 function fonts() {
   return gulp.src(config.PATHS.fonts)
@@ -86,6 +99,7 @@ function clean(done) {
 // The main build task
 gulp.task('build', gulp.series(
   clean,
+  sprites,
   gulp.parallel(styles, scripts, fonts, images)
 ));
 
@@ -117,3 +131,4 @@ gulp.task('fonts', fonts);
 gulp.task('images', images);
 gulp.task('styles', styles);
 gulp.task('scripts', scripts);
+gulp.task('sprites', sprites);

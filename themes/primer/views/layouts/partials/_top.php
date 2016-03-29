@@ -13,4 +13,4 @@ $view->registerLinkTag([
   ]);
 $theme = $view->theme;
 $asset = app\themes\primer\assets\ThemeAsset::register($view);
-$pype_logo = $asset->baseUrl . '/pype_w.svg';
+$pype_logo = $asset->baseUrl . '/img/pype_w.svg';

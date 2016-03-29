@@ -41,10 +41,10 @@ task('deploy:configure_composer', function () {
 task('deploy:build_assets', function () {
    runLocally('gulp build');
    $theme = env('app.theme');
-   upload(__DIR__ . '/themes/' . $theme . '/dist/css', '{{release_path}}/themes/' . $theme . '/dist/css');
-   upload(__DIR__ . '/themes/' . $theme . '/dist/js', '{{release_path}}/themes/' . $theme . '/dist/js');
-   upload(__DIR__ . '/themes/' . $theme . '/dist/fonts', '{{release_path}}/themes/' . $theme . '/dist/fonts');
-   upload(__DIR__ . '/themes/' . $theme . '/dist/img', '{{release_path}}/themes/' . $theme . '/dist/img');
+   upload(__DIR__ . '/themes/' . $theme . '/assets/dist/css', '{{release_path}}/themes/' . $theme . '/assets/dist/css');
+   upload(__DIR__ . '/themes/' . $theme . '/assets/dist/js', '{{release_path}}/themes/' . $theme . '/assets/dist/js');
+   upload(__DIR__ . '/themes/' . $theme . '/assets/dist/fonts', '{{release_path}}/themes/' . $theme . '/assets/dist/fonts');
+   upload(__DIR__ . '/themes/' . $theme . '/assets/dist/img', '{{release_path}}/themes/' . $theme . '/assets/dist/img');
 })->desc('Build assets');
 
 // update symlink to images dir

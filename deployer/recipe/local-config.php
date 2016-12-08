@@ -96,6 +96,17 @@ task('local-config', function () {
                 writeln(sprintf("<fg=red>✘</fg=red> %s", $file->getRelativePathname()));
             }
         }
+        $theme = get('app.theme');
+        $finder   = new \Symfony\Component\Finder\Finder();
+        $iterator = $finder
+        ->ignoreDotFiles(false)
+        ->files()
+        ->name('/\.*$/')
+        ->in(getcwd() . '/themes/' . $theme . '/build');
+        foreach ($iterator as $file) {
+            upload($file, "$releaseDir/" . $file->getRelativePathname());
+            writeln(sprintf("<info>✔</info> %s", $file->getRelativePathname()));
+        }
 
     }
 })->desc('Configures your local development environment')->onlyForStage('local');

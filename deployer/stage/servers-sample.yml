@@ -3,7 +3,10 @@
 prod_1:
     host: hostname
     user: username
-    password: password
+    identity_file:
+        public_key: /home/user/.ssh/key.pub
+        private_key: /home/user/.ssh/key
+        password: "password"
     stage: production
     repository: https://github.com/user/repository.git
     deploy_path: /var/www

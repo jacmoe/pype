@@ -4,6 +4,7 @@
 * For the full copyright and license information, please view the LICENSE
 * file that was distributed with this source code.
 */
+namespace Deployer;
 
 require_once __DIR__ . '/common.php';
 
@@ -21,7 +22,7 @@ task('local-config', function () {
                 if($matches[1] === 'release_path') {
                     $matches[1] = 'deploy_path';
                 }
-                $value = env()->get($matches[1]);
+                $value = get($matches[1]);
                 if (is_null($value) || is_bool($value) || is_array($value)) {
                     $value = var_export($value, true);
                 }
@@ -52,7 +53,7 @@ task('local-config', function () {
         ->in(getcwd() . '/deployer/templates');
 
         $tmpDir = sys_get_temp_dir();
-        $releaseDir = env('deploy_path');
+        $releaseDir = get('deploy_path');
 
         /* @var $file \Symfony\Component\Finder\SplFileInfo */
         foreach ($iterator as $file) {
@@ -94,18 +95,6 @@ task('local-config', function () {
             } else {
                 writeln(sprintf("<fg=red>✘</fg=red> %s", $file->getRelativePathname()));
             }
-        }
-
-        $theme = env('app.theme');
-        $finder   = new \Symfony\Component\Finder\Finder();
-        $iterator = $finder
-        ->ignoreDotFiles(false)
-        ->files()
-        ->name('/\.*$/')
-        ->in(getcwd() . '/themes/' . $theme . '/build');
-        foreach ($iterator as $file) {
-            upload($file, "$releaseDir/" . $file->getRelativePathname());
-            writeln(sprintf("<info>✔</info> %s", $file->getRelativePathname()));
         }
 
     }

@@ -2,6 +2,10 @@
 // This is a modified version of
 // https://github.com/deployphp/recipes/blob/master/recipes/configure.php
 
+namespace Deployer;
+
+require_once __DIR__ . '/common.php';
+
 /**
  * Make shared_dirs and configure files from templates
  */
@@ -15,7 +19,7 @@ task('deploy:configure', function () {
      */
     $paser = function($matches) {
         if (isset($matches[1])) {
-            $value = env()->get($matches[1]);
+            $value = get($matches[1]);
             if (is_null($value) || is_bool($value) || is_array($value)) {
                 $value = var_export($value, true);
             }
@@ -46,8 +50,8 @@ task('deploy:configure', function () {
         ->in(getcwd() . '/deployer/templates');
 
     $tmpDir = sys_get_temp_dir();
-    $deployDir = env('deploy_path');
-    $releaseDir = env('release_path');
+    $deployDir = get('deploy_path');
+    $releaseDir = get('release_path');
 
     /* @var $file \Symfony\Component\Finder\SplFileInfo */
     foreach ($iterator as $file) {

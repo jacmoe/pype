@@ -2,7 +2,6 @@
 /content
 /flywheel
 /yii
-/composer.lock
 /node_modules
 /Gulpfile.js
 /debug

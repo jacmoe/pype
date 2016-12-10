@@ -14,3 +14,4 @@ $view->registerLinkTag([
 $theme = $view->theme;
 $asset = app\themes\primer\assets\ThemeAsset::register($view);
 $pype_logo = $asset->baseUrl . '/img/pype_w.svg';
+$uber_logo = $asset->baseUrl . '/img/ubernaut_white.png';

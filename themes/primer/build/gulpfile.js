@@ -14,7 +14,7 @@
 // Load plugins
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
-var browsersync = require('browser-sync');
+//var browsersync = require('browser-sync');
 var rimraf = require('rimraf');
 var yargs = require('yargs');
 var yaml = require('js-yaml');

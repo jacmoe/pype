@@ -1,16 +1,5 @@
 $(document).ready(function() {
 
-    $.cookiesDirective({
-        backgroundOpacity: '85',
-        backgroundColor: '#262626',
-        linkColor: '#FFF',
-        buttonClass: 'btn btn-sm',
-        position: 'bottom',
-        explicitConsent: false,
-        message: 'This website uses cookies for analytics. By visiting this site you accept the use of cookies.',
-        privacyPolicyUri: '/cookies'
-    });
-
     $(".toc").sticky({ topSpacing: +10 });
 
     // Cache selectors

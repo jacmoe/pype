@@ -8,7 +8,7 @@
 * |_|    |___/|_|
 *                 Personal Yii Page Engine
 *
-*	Copyright (c) 2016 Jacob Moen
+*	Copyright (c) 2016 - 2017 Jacob Moen
 *	Licensed under the MIT license
 */
 //TODO: figure out how to move this snippet class to components..

@@ -96,7 +96,7 @@ task('local-config', function () {
                 writeln(sprintf("<fg=red>✘</fg=red> %s", $file->getRelativePathname()));
             }
         }
-        $theme = get('app.theme');
+        $theme = get('app_theme');
         $finder   = new \Symfony\Component\Finder\Finder();
         $iterator = $finder
         ->ignoreDotFiles(false)
@@ -109,4 +109,4 @@ task('local-config', function () {
         }
 
     }
-})->desc('Configures your local development environment')->onlyForStage('local');
+})->desc('Configures your local development environment')->onStage('local');

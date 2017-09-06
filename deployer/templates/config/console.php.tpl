@@ -43,7 +43,7 @@ return [
         'github_branch' => '{{github_branch}}',
         'absolute_wikilinks' => true,
         'generate_page_toc' => true,
-        'generate_contributor_data' => false,
+        'generate_contributor_data' => true,
         'snippets' => $snippets,
       ],
     ],

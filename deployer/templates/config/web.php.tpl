@@ -15,7 +15,7 @@
 $params = require(__DIR__ . '/params.php');
 $snippets = require(__DIR__ . '/snippets.php');
 
-$theme = '{{app.theme}}';
+$theme = '{{app_theme}}';
 
 $config = [
     'id' => 'pype',
@@ -51,7 +51,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 [
-                    'pattern' => '/rss',
+                    'pattern' => '/feed',
                     'route' => '/wiki/page/rss',
                 ],
                 [
@@ -80,7 +80,7 @@ $config = [
                     'cachePath' => '@runtime/Jade/cache',
                     'options' => [
                         'pretty' => true,
-                        'lifeTime' => {{app.template_engine.lifetime}},//3600 -> 1 hour
+                        'lifeTime' => {{jade_cache_lifetime}}
                     ],
                 ],
             ],
@@ -97,19 +97,20 @@ $config = [
     'modules' => [
         'wiki' => [
             'class' => 'jacmoe\mdpages\Module',
-            'repository_url' => 'https://github.com/{{app.github.owner}}/{{app.github.repo}}.git',
-            'github_token' => '{{app.github.token}}',
-            'github_owner' => '{{app.github.owner}}',
-            'github_repo' => '{{app.github.repo}}',
-            'github_branch' => '{{app.github.branch}}',
+            'repository_url' => 'https://github.com/{{github_owner}}/{{github_repo}}.git',
+            'github_token' => '{{github_token}}',
+            'github_owner' => '{{github_owner}}',
+            'github_repo' => '{{github_repo}}',
+            'github_branch' => '{{github_branch}}',
             'absolute_wikilinks' => true,
-            'generate_page_toc' => true,
-            'feed_title' => 'Pages',
-            'feed_description' => 'Pype Rss Feed',
-            'feed_author_email' => 'noreply@pype.jacmoe.dk',
-            'feed_author_name' => 'Pype Team',
-            'feed_filtering' => false,
-            'feed_filter' => ['published', '==', true],
+            'generate_page_toc' => false,
+            'feed_title' => 'Blog posts',
+            'feed_description' => 'Jacmoes Cyber Soapbox Rss Feed',
+            'feed_author_email' => 'jacmoe.dk@gmail.com',
+            'feed_author_name' => 'Jacob Moen',
+            'feed_ordering' => 'datetime DESC',
+            'feed_filtering' => true,
+            'generate_contributor_data' => false,
             'snippets' => $snippets,
         ],
     ],

@@ -7,34 +7,23 @@
 
 namespace Deployer;
 
-desc('Preparing server for deploy');
+use function Deployer\Support\str_contains;
+
+desc('Preparing host for deploy');
 task('deploy:prepare', function () {
     // Check if shell is POSIX-compliant
-    try {
-        cd(''); // To run command as raw.
-        $result = run('echo $0')->toString();
-        if ($result == 'stdin: is not a tty') {
-            throw new \RuntimeException(
-                "Looks like ssh inside another ssh.\n" .
-                "Help: http://goo.gl/gsdLt9"
-            );
-        }
-    } catch (\RuntimeException $e) {
-        $formatter = Deployer::get()->getHelper('formatter');
+    $result = run('echo $0');
 
-        $errorMessage = [
-            "Shell on your server is not POSIX-compliant. Please change to sh, bash or similar.",
-            "Usually, you can change your shell to bash by running: chsh -s /bin/bash",
-        ];
-        write($formatter->formatBlock($errorMessage, 'error', true));
-
-        throw $e;
+    if (!str_contains($result, 'bash') && !str_contains($result, 'sh')) {
+        throw new \RuntimeException(
+            'Shell on your server is not POSIX-compliant. Please change to sh, bash or similar.'
+        );
     }
 
     run('if [ ! -d {{deploy_path}} ]; then mkdir -p {{deploy_path}}; fi');
 
     // Check for existing /current directory (not symlink)
-    $result = run('if [ ! -L {{deploy_path}}/current ] && [ -d {{deploy_path}}/current ]; then echo true; fi')->toBool();
+    $result = test('[ ! -L {{deploy_path}}/current ] && [ -d {{deploy_path}}/current ]');
     if ($result) {
         throw new \RuntimeException('There already is a directory (not symlink) named "current" in ' . get('deploy_path') . '. Remove this directory so it can be replaced with a symlink for atomic deployments.');
     }

@@ -28,7 +28,7 @@ function run($postBody, $headers) {
         return false;
     }
 
-    $secret = '{{app.webhook.secret}}';//getenv('WEBHOOK_SECRET');
+    $secret = '{{webhook_secret}}';//getenv('WEBHOOK_SECRET');
 
     $hash = 'sha1=' . hash_hmac( 'sha1', $postBody, $secret, false );
 
@@ -38,11 +38,11 @@ function run($postBody, $headers) {
     }
 
     // check if the push came from the right repository
-    if ($payload->repository->url == 'https://github.com/{{app.github.owner}}/{{app.github.repo}}'
-        && $payload->ref == 'refs/heads/{{app.github.branch}}') {
+    if ($payload->repository->url == 'https://github.com/{{github_owner}}/{{github_repo}}'
+        && $payload->ref == 'refs/heads/{{github_branch}}') {
 
         // execute update script
-        passthru('{{app.webhook.php}} {{app.webhook.yii}} mdpages/pages/update');
+        passthru('{{webhook_php}} {{webhook_yii}} mdpages/pages/update');
 
         return true;
     } else {

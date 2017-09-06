@@ -26,22 +26,22 @@ set('release_name', function () {
 }); // name of folder in releases
 
 /**
- * Return list of releases on server.
+ * Return list of releases on host.
  */
 set('releases_list', function () {
     cd('{{deploy_path}}');
 
     // If there is no releases return empty list.
-    if (!run('[ -d releases ] && [ "$(ls -A releases)" ] && echo "true" || echo "false"')->toBool()) {
+    if (!test('[ -d releases ] && [ "$(ls -A releases)" ]')) {
         return [];
     }
 
     // Will list only dirs in releases.
-    $list = run('cd releases && ls -t -d */')->toArray();
+    $list = explode("\n", run('cd releases && ls -t -1 -d */'));
 
     // Prepare list.
     $list = array_map(function ($release) {
-        return basename(rtrim($release, '/'));
+        return basename(rtrim(trim($release), '/'));
     }, $list);
 
     $releases = []; // Releases list.
@@ -49,19 +49,25 @@ set('releases_list', function () {
     // Collect releases based on .dep/releases info.
     // Other will be ignored.
 
-    if (run('if [ -f .dep/releases ]; then echo "true"; fi')->toBool()) {
+    if (test('[ -f .dep/releases ]')) {
         $keepReleases = get('keep_releases');
         if ($keepReleases === -1) {
             $csv = run('cat .dep/releases');
         } else {
-            $csv = run("tail -n " . ($keepReleases + 5) . " .dep/releases");
+            // Instead of `tail -n` call here can be `cat` call,
+            // but on hosts with a lot of deploys (more 1k) it
+            // will output a really big list of previous releases.
+            // It spoils appearance of output log, to make it pretty,
+            // we limit it to `n*2 + 5` lines from end of file (15 lines).
+            // Always read as many lines as there are release directories.
+            $csv = run("tail -n " . max(count($releases), ($keepReleases * 2 + 5)) . " .dep/releases");
         }
 
         $metainfo = Csv::parse($csv);
 
         for ($i = count($metainfo) - 1; $i >= 0; --$i) {
             if (is_array($metainfo[$i]) && count($metainfo[$i]) >= 2) {
-                list($date, $release) = $metainfo[$i];
+                list(, $release) = $metainfo[$i];
                 $index = array_search($release, $list, true);
                 if ($index !== false) {
                     $releases[] = $release;
@@ -78,16 +84,13 @@ set('releases_list', function () {
  * Return release path.
  */
 set('release_path', function () {
-    $releaseExists = run("if [ -h {{deploy_path}}/release ]; then echo 'true'; fi")->toBool();
-    if (!$releaseExists) {
-        throw new \RuntimeException(
-            "Release path does not found.\n" .
-            "Run deploy:release to create new release."
-        );
+    $releaseExists = test('[ -h {{deploy_path}}/release ]');
+    if ($releaseExists) {
+        $link = run("readlink {{deploy_path}}/release");
+        return substr($link, 0, 1) === '/' ? $link : get('deploy_path') . '/' . $link;
+    } else {
+        return get('current_path');
     }
-
-    $link = run("readlink {{deploy_path}}/release")->toString();
-    return substr($link, 0, 1) === '/' ? $link : get('deploy_path') . '/' . $link;
 });
 
 
@@ -95,19 +98,19 @@ desc('Prepare release');
 task('deploy:release', function () {
     cd('{{deploy_path}}');
 
-    // Clean up if there is unfinished release.
-    $previousReleaseExist = run("if [ -h release ]; then echo 'true'; fi")->toBool();
+    // Clean up if there is unfinished release
+    $previousReleaseExist = test('[ -h release ]');
 
     if ($previousReleaseExist) {
-        run('rm -rf "$(readlink release)"'); // Delete release.
-        run('rm release'); // Delete symlink.
+        run('rm -rf "$(readlink release)"'); // Delete release
+        run('rm release'); // Delete symlink
     }
 
     $releaseName = get('release_name');
 
-    // Fix collisions.
+    // Fix collisions
     $i = 0;
-    while (run("if [ -d {{deploy_path}}/releases/$releaseName ]; then echo 'true'; fi")->toBool()) {
+    while (test("[ -d {{deploy_path}}/releases/$releaseName ]")) {
         $releaseName .= '.' . ++$i;
         set('release_name', $releaseName);
     }
@@ -117,10 +120,21 @@ task('deploy:release', function () {
     // Metainfo.
     $date = run('date +"%Y%m%d%H%M%S"');
 
-    // Save metainfo about release.
+    // Save metainfo about release
     run("echo '$date,{{release_name}}' >> .dep/releases");
 
-    // Make new release.
+    // Make new release
     run("mkdir $releasePath");
     run("{{bin/symlink}} $releasePath {{deploy_path}}/release");
+
+    $releasesList = get('releases_list');
+
+    // Add to releases list
+    array_unshift($releasesList, $releaseName);
+    set('releases_list', $releasesList);
+
+    // Set previous_release
+    if (isset($releasesList[1])) {
+        set('previous_release', "{{deploy_path}}/releases/{$releasesList[1]}");
+    }
 });

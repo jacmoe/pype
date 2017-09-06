@@ -29,7 +29,6 @@ task('local-config', function () {
             } else {
                 $value = $matches[0];
             }
-
             return $value;
         };
 
@@ -41,7 +40,6 @@ task('local-config', function () {
         */
         $compiler = function ($contents) use ($paser) {
             $contents = preg_replace_callback('/\{\{\s*([\w\.]+)\s*\}\}/', $paser, $contents);
-
             return $contents;
         };
 
@@ -96,17 +94,6 @@ task('local-config', function () {
                 writeln(sprintf("<fg=red>✘</fg=red> %s", $file->getRelativePathname()));
             }
         }
-        $theme = get('app.theme');
-        $finder   = new \Symfony\Component\Finder\Finder();
-        $iterator = $finder
-        ->ignoreDotFiles(false)
-        ->files()
-        ->name('/\.*$/')
-        ->in(getcwd() . '/themes/' . $theme . '/build');
-        foreach ($iterator as $file) {
-            upload($file, "$releaseDir/" . $file->getRelativePathname());
-            writeln(sprintf("<info>✔</info> %s", $file->getRelativePathname()));
-        }
 
     }
-})->desc('Configures your local development environment')->onlyForStage('local');
+})->desc('Configures your local development environment')->onStage('local');

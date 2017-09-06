@@ -9,13 +9,12 @@ namespace Deployer;
 
 desc('Copy directories');
 task('deploy:copy_dirs', function () {
-    $dirs = get('copy_dirs');
-
-    foreach ($dirs as $dir) {
-        // Delete directory if exists.
-        run("if [ -d $(echo {{release_path}}/$dir) ]; then rm -rf {{release_path}}/$dir; fi");
-
-        // Copy directory.
-        run("if [ -d $(echo {{deploy_path}}/current/$dir) ]; then cp -rpf {{deploy_path}}/current/$dir {{release_path}}/$dir; fi");
+    if (has('previous_release')) {
+        foreach (get('copy_dirs') as $dir) {
+            if (test("[ -d {{previous_release}}/$dir ]")) {
+                run("mkdir -p {{release_path}}/$dir");
+                run("rsync -av {{previous_release}}/$dir/ {{release_path}}/$dir");
+            }
+        }
     }
 });

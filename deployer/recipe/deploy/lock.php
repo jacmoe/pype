@@ -7,14 +7,18 @@
 
 namespace Deployer;
 
+use Deployer\Exception\GracefulShutdownException;
+
 desc('Lock deploy');
 task('deploy:lock', function () {
-    $locked = run("if [ -f {{deploy_path}}/.dep/deploy.lock ]; then echo 'true'; fi")->toBool();
+    $locked = test("[ -f {{deploy_path}}/.dep/deploy.lock ]");
 
     if ($locked) {
-        throw new \RuntimeException(
+        $stage = input()->hasArgument('stage') ? ' ' . input()->getArgument('stage') : '';
+
+        throw new GracefulShutdownException(
             "Deploy locked.\n" .
-            "Run deploy:unlock command to unlock."
+            sprintf('Execute "dep deploy:unlock%s" to unlock.', $stage)
         );
     } else {
         run("touch {{deploy_path}}/.dep/deploy.lock");
@@ -23,5 +27,5 @@ task('deploy:lock', function () {
 
 desc('Unlock deploy');
 task('deploy:unlock', function () {
-    run("rm {{deploy_path}}/.dep/deploy.lock");
+    run("rm -f {{deploy_path}}/.dep/deploy.lock");//always success
 });

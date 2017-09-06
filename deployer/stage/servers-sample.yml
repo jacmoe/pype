@@ -1,33 +1,26 @@
-# Pype Configuration
-# -------------
 prod_1:
     host: hostname
     user: username
-    identity_file:
-        public_key: /home/user/.ssh/key.pub
-        private_key: /home/user/.ssh/key
-        password: "password"
+    ssh_public_key: /home/user/.ssh/key.pub
+    ssh_private_key: /home/user/.ssh/key
+    ssh_password: "password"
     stage: production
     repository: https://github.com/user/repository.git
     deploy_path: /var/www
-    app:
-        debug: false
-        stage: 'prod'
-        theme: 'default'
 
-        template_engine:
-            lifetime: 3600
+    app_debug: false
+    app_stage: 'prod'
 
-        github:
-            token: secretstuff
-            owner: user
-            repo: repo
-            branch: master
+    jade_cache_lifetime: 3600
 
-        webhook:
-            secret: secrethash
-            php: /usr/bin/php
-            yii: /path/to/yii
+    github_token: secretstuff
+    github_owner: user
+    github_repo: repo
+    github_branch: master
+
+    webhook_secret: secrethash
+    webhook_php: /usr/bin/php
+    webhook_yii: /path/to/yii
 
 dev_1:
     local: true
@@ -37,21 +30,17 @@ dev_1:
     stage: local
     repository: https://github.com/user/repository.git
     deploy_path: /home/user/www
-    app:
-        debug: true
-        stage: 'dev'
-        theme: 'default'
 
-        template_engine:
-            lifetime: 0
+    app_debug: true
+    app_stage: 'dev'
 
-        github:
-            token: secretstuff
-            owner: user
-            repo: repo
-            branch: master
+    jade_cache_lifetime: 0
 
-        webhook:
-            secret: secrethash
-            php: /usr/bin/php
-            yii: /path/to/yii
+    github_token: secretstuff
+    github_owner: user
+    github_repo: repo
+    github_branch: master
+
+    webhook_secret: secrethash
+    webhook_php: /usr/bin/php
+    webhook_yii: /path/to/yii

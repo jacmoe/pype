@@ -51,7 +51,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 [
-                    'pattern' => '/feed',
+                    'pattern' => '/rss',
                     'route' => '/wiki/page/rss',
                 ],
                 [
@@ -104,12 +104,12 @@ $config = [
             'github_branch' => '{{github_branch}}',
             'absolute_wikilinks' => true,
             'generate_page_toc' => false,
-            'feed_title' => 'Blog posts',
-            'feed_description' => 'Jacmoes Cyber Soapbox Rss Feed',
+            'feed_title' => 'Pages',
+            'feed_description' => 'Pype Rss Feed',
             'feed_author_email' => 'jacmoe.dk@gmail.com',
-            'feed_author_name' => 'Jacob Moen',
+            'feed_author_name' => 'Pype Team',
             'feed_ordering' => 'datetime DESC',
-            'feed_filtering' => true,
+            'feed_filtering' => false,
             'generate_contributor_data' => true,
             'snippets' => $snippets,
         ],

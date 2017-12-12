@@ -17,10 +17,10 @@
   },
   "require": {
     "php": ">=5.4.0",
-    "yiisoft/yii2": "2.0.12",
+    "yiisoft/yii2": "2.0.13.1",
     "jacmoe/yii2-mdpages-module": "dev-master",
-    "jacmoe/yii2-tale-jade": "dev-master",
-    "talesoft/tale-jade": "dev-master"
+    "pug/yii2": "^1.0",
+    "talesoft/tale-pug": "dev-master"
   },
   "require-dev": {
     "codeception/codeception": "*",
